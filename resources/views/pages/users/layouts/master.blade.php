@@ -8,8 +8,8 @@
   <title>@yield('title','Khoir Project')</title>
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta content="Khoir Project" name="description">
-  <meta content="Khoir Project" name="keywords">
+  <meta content="{!! $header_settings->header_name !!}" name="description">
+  <meta content="{!! $header_settings->header_name !!}" name="keywords">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -370,12 +370,12 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">{!! $header_settings->header_email !!}</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>{!! $header_settings->header_phone !!}</span></i>
       </div>
 
       <div class="cta d-none d-md-flex align-items-center">
-        <a href="#about" class="scrollto">Get Started</a>
+        <a href="#about" class="scrollto">{!! $header_settings->header_button_text !!}</a>
       </div>
     </div>
   </section>
@@ -391,7 +391,7 @@
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <div class="d-flex align-items-center">
         <i class="bx bxs-right-arrow-alt get-started-icon"></i>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="#about" class="btn-get-started scrollto">{!! $header_settings->header_button_text !!}</a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -408,13 +408,14 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Flexor</h3>
+            <h3>{!! $footer_settings->footer_title !!}</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              {!! $footer_settings->footer_address !!}
+              
+            </p>
+            <p>
+              <strong>Nomor Telphone:</strong> {!! $footer_settings->footer_phone !!}<br>
+              <strong>Email:</strong> {!! $footer_settings->footer_email !!}<br>
             </p>
           </div>
 
@@ -432,11 +433,10 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Devisi</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Lebah</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Herbal</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Sembako</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Expedisi</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Florist</a></li>
+              {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Lebah</a></li> --}}
+              @foreach ($devisions as $devision)
+                  <li><i class="bx bx-chevron-right"></i> <a href="{{ $devision->slug }}">{{ $devision->name }}</a></li>
+              @endforeach
             </ul>
           </div>
 
@@ -456,18 +456,17 @@
 
       <div class="me-lg-auto text-center text-lg-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Khoir Project</span></strong>. All Rights Reserved
+          {!! $footer_settings->footer_copyright !!}
         </div>
         <div class="credits">
-          Designed by <a href="/">Khoir Project</a>
+          Designed by <a href="/">{!! $footer_settings->footer_designed !!}</a>
         </div>
       </div>
       <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="{!! $footer_settings->footer_twitter !!}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{!! $footer_settings->footer_facebook !!}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{!! $footer_settings->footer_instagram !!}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{!! $footer_settings->footer_youtube !!}" class="google-plus"><i class="bx bxl-youtube"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->

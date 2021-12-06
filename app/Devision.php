@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Devision extends Model
 {
     protected $table = 'devisions';
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug', 'description'];
 }

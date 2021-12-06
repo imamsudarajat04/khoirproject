@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Devision;
+use App\HomepageSetting;
+use App\FooterSetting;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -13,7 +15,10 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('pages.users.welcome');
+        $devisions = Devision::all();
+        $header_settings = HomepageSetting::first();
+        $footer_settings = FooterSetting::first();
+        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings'));
     }
 
     /**
