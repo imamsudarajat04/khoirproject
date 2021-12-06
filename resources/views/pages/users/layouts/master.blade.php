@@ -433,7 +433,6 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Devisi</h4>
             <ul>
-              {{-- <li><i class="bx bx-chevron-right"></i> <a href="#">Lebah</a></li> --}}
               @foreach ($devisions as $devision)
                   <li><i class="bx bx-chevron-right"></i> <a href="{{ $devision->slug }}">{{ $devision->name }}</a></li>
               @endforeach
