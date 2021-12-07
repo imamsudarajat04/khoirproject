@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.users.welcome');
-// });
-
 Route::resource('/', 'BerandaController');
+
+Route::resource('/login', 'LoginController');
+
+Route::group(['middleware' => ['auth','CekRole:Admin,Users']], function() {
+    
+} );
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

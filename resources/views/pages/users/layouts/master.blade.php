@@ -380,7 +380,7 @@
       </div>
 
       <div class="cta d-none d-md-flex align-items-center">
-        <a href="#" class="scrollto">Login</a>
+        <a href="/login" class="scrollto">Login</a>
       </div>
     </div>
   </section>
