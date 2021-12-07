@@ -32,7 +32,8 @@
     #hero {
       width: 100%;
       height: 60vh;
-      background: url("../asset/img/hero-bg.jpg") center center;
+      /* background: url("../asset/img/hero-bg.jpg") center center; */
+      background: url({{ Storage::exists('public/' . $global_settings->page_banner) && $global_settings->page_banner ? Storage::url($global_settings->page_banner) : asset('asset/img/hero-bg.jpg') }}) center center;
       background-size: cover;
       position: relative;
       z-index: 1;
@@ -53,7 +54,7 @@
     }
     #hero h1 {
       margin: 0 0 10px 0;
-      font-size: 48px;
+      font-size: {{ $global_settings->font_size_title }}px;
       font-weight: 700;
       line-height: 56px;
       color: #fff;
@@ -61,7 +62,7 @@
     #hero h2 {
       color: #eee;
       margin-bottom: 50px;
-      font-size: 24px;
+      font-size: {{ $global_settings->font_size_subtitle }}px;
     }
     #hero .get-started-icon {
       font-size: 24px;
@@ -173,7 +174,7 @@
       transition: 0.3s;
     }
     .about .icon-box .title a:hover {
-      color: #ff5821;
+      color:#ff5821;
     }
     .about .icon-box .description {
       margin-left: 85px;
@@ -181,7 +182,8 @@
       font-size: 14px;
     }
     .about .video-box {
-      background: url("../asset/img/about-img.jpg") center center no-repeat;
+      /* background: url("../asset/img/about-img.jpg") center center no-repeat; */
+      background: url({{ Storage::exists('public/' . $global_settings->page_banner_about) && $global_settings->page_banner_about ? Storage::url($global_settings->page_banner_about) : asset('asset/img/about-img.jpg') }}) no-repeat;
       background-size: cover;
       min-height: 500px;
     }
@@ -281,7 +283,8 @@
     --------------------------------------------------------------*/
     .testimonials {
       padding: 80px 0;
-      background: url("../asset/img/testimonials-bg.jpg") no-repeat;
+      /* background: url("../asset/img/testimonials-bg.jpg") no-repeat; */
+      background: url({{ Storage::exists('public/' . $global_settings->page_banner_testimonials) && $global_settings->page_banner_testimonials ? Storage::url($global_settings->page_banner_testimonials) : asset('asset/img/testimonials-bg.jpg') }}) no-repeat;
       background-position: center center;
       background-size: cover;
       position: relative;
@@ -360,6 +363,8 @@
         width: 80%;
       }
     }
+
+    
   </style>
 
 </head>
@@ -375,7 +380,7 @@
       </div>
 
       <div class="cta d-none d-md-flex align-items-center">
-        <a href="#about" class="scrollto">{!! $header_settings->header_button_text !!}</a>
+        <a href="#" class="scrollto">Login</a>
       </div>
     </div>
   </section>
@@ -387,8 +392,8 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container" data-aos="fade-in">
-      <h1>Selamat Datang di Khoir Project</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h1>{!! $header_settings->header_title !!}</h1>
+      <h2>{!! $header_settings->header_subtitle !!}</h2>
       <div class="d-flex align-items-center">
         <i class="bx bxs-right-arrow-alt get-started-icon"></i>
         <a href="#about" class="btn-get-started scrollto">{!! $header_settings->header_button_text !!}</a>
@@ -461,7 +466,7 @@
           Designed by <a href="/">{!! $footer_settings->footer_designed !!}</a>
         </div>
       </div>
-      <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
+      <div class="primary-color social-links text-center text-lg-right pt-3 pt-lg-0">
         <a href="{!! $footer_settings->footer_twitter !!}" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="{!! $footer_settings->footer_facebook !!}" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="{!! $footer_settings->footer_instagram !!}" class="instagram"><i class="bx bxl-instagram"></i></a>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Devision;
-use App\HomepageSetting;
 use App\FooterSetting;
+use App\GlobalSetting;
+use App\HomepageSetting;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -18,7 +19,8 @@ class BerandaController extends Controller
         $devisions = Devision::all();
         $header_settings = HomepageSetting::first();
         $footer_settings = FooterSetting::first();
-        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings'));
+        $global_settings = GlobalSetting::first();
+        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings'));
     }
 
     /**

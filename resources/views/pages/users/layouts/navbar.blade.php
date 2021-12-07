@@ -2,7 +2,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="/">Khoir Project</a></h1>
+        <h1><a href="/">{{ $header_settings->header_name }}</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         {{-- <a href="/"><img src="asset/img/logo.png" alt="" class="img-fluid"></a> --}}
       </div>
