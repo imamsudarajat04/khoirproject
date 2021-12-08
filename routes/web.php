@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', 'BerandaController');
 
-Route::resource('/login', 'LoginController');
+Route::get('/login', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@store')->name('login.store');
+Route::get('/logout', 'LoginController@logout')->name('login.logout');
 
-Route::group(['middleware' => ['auth','CekRole:Admin,Users']], function() {
-    
+Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
+    //Admin
+    Route::resource('/beranda', 'DashboardController');
 } );
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

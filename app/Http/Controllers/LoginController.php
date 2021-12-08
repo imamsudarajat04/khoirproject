@@ -37,8 +37,7 @@ class LoginController extends Controller
     {
         if(Auth::attempt($request->only('email', 'password')))
         {
-            // return redirect('/dashboard');
-            return "success";
+            return redirect('/beranda');
         }
         return redirect('/login')->with('error', 'Your username and password are invalid!');
     }
@@ -84,6 +83,11 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+
+    public function logout()
     {
         Auth::logout();
         return redirect('/login');

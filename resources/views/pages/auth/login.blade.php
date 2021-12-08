@@ -6,8 +6,6 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>@yield('title', 'Login')</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -43,6 +41,11 @@
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                     <p class="text-center small">Enter your email & password to login</p>
                   </div>
+
+                  <!-- Alert -->
+                  @if ($message = Session::get('error'))
+                    <script>window.alert("{{ $message }}")</script>
+                  @endif
 
                   <form action="{{ route('login.store') }}" method="POST" class="row g-3 needs-validation" novalidate>
                     @csrf
@@ -89,7 +92,6 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('vendor/quill/quill.min.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
