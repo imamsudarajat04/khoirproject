@@ -32,7 +32,7 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-xl-12 col-lg-12">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('footer-setting.update', $data->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card shadow mb-2">
@@ -79,7 +79,7 @@
                                 <div class="row">
                                     <label class="col-12 control-label">Copyright Footer</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_copyright" placeholder="Masukan Copyright.." value="{{ old('footer_copyright') }}">
+                                        <input type="text" class="form-control" name="footer_copyright" placeholder="Masukan Copyright.." value="{{ old('footer_copyright', $data->footer_copyright) }}">
                                     </div>
                                 </div>
                             </div>
@@ -87,9 +87,45 @@
                         <div class="row">
                             <div class="col-12 col-md-12 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Map Footer (iframe)</label>
+                                    <label class="col-12 control-label">Designed Footer</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_map" placeholder="Masukan Title.." value="{{ old('footer_map') }}">
+                                        <input type="text" class="form-control" name="footer_designed" placeholder="Masukan Designed.." value="{{ old('footer_designed', $data->footer_designed) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label for="" class="col-12 control-label">Link Twitter</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="footer_twitter" placeholder="Masukan Link Twitter.." value="{{ old('footer_twitter', $data->footer_twitter) }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label for="" class="col-12 control-label">Link Facebook</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="footer_facebook" placeholder="Masukan Link Facebook.." value="{{ old('footer_facebook', $data->footer_facebook) }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label for="" class="col-12 control-label">Link Instagram</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="footer_instagram" placeholder="Masukan Link Instagram.." value="{{ old('footer_instagram', $data->footer_instagram) }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label for="" class="col-12 control-label">Link Youtube</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="footer_youtube" placeholder="Masukan Link Youtube.." value="{{ old('footer_youtube', $data->footer_youtube) }}" required>
                                     </div>
                                 </div>
                             </div>

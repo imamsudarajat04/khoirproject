@@ -70,7 +70,9 @@ class FooterSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = FooterSetting::find($id);
+        $data->update($request->all());
+        return redirect()->back()->with('success', 'Footer Settings Updated Successfully');
     }
 
     /**
