@@ -56,7 +56,7 @@
         <div id="collapseTwo" class="collapse active" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#">Header Setting</a>
-                <a class="collapse-item" href="#">Global Setting</a>
+                <a class="collapse-item @yield('global')" href="{{ route('global-setting.index') }}">Global Setting</a>
                 <a class="collapse-item @yield('footer')" href="{{ route('footer-setting.index') }}">Footer Setting</a>
             </div>
         </div>

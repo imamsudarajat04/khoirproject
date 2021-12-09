@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
     
     Route::prefix('settings')->group(function() {
         Route::resource('footer-setting', "FooterSettingController");
+        Route::resource('global-setting', "GlobalSettingController");
     });
 } );
 
