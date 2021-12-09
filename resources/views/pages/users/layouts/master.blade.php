@@ -378,10 +378,6 @@
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">{!! $header_settings->header_email !!}</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>{!! $header_settings->header_phone !!}</span></i>
       </div>
-
-      <div class="cta d-none d-md-flex align-items-center">
-        <a href="/login" class="scrollto">Login</a>
-      </div>
     </div>
   </section>
 
@@ -479,7 +475,7 @@
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/jss/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
