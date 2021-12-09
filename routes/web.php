@@ -23,7 +23,11 @@ Route::get('/logout', 'LoginController@logout')->name('login.logout');
 
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
-    Route::resource('/beranda', 'DashboardController');
+    Route::resource('/beranda', 'DashboardController');\
+    
+    Route::prefix('settings')->group(function() {
+        Route::resource('footer-setting', "FooterSettingController");
+    });
 } );
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
