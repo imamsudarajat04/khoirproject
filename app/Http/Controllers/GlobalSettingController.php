@@ -71,8 +71,9 @@ class GlobalSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = GlobalSetting::findOrFail($id);
+        $item = GlobalSetting::find($id);
         $data = $request->all();
+        // dd($data);
 
         if($request->hasFile('page_banner')) {
             Storage::delete('public/' . $item->page_banner);
