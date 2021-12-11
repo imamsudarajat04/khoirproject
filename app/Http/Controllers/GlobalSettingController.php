@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\GlobalSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GlobalSettingController extends Controller
 {
@@ -13,7 +15,8 @@ class GlobalSettingController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.settings.globalsettings.index');
+        $data = GlobalSetting::first();
+        return view('pages.admin.settings.globalsettings.index', compact('data'));
     }
 
     /**
@@ -68,7 +71,17 @@ class GlobalSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = GlobalSetting::findOrFail($id);
+        $data = $request->all();
+
+        if($request->hasFile('page_banner')) {
+            Storage::delete('public/' . $item->page_banner);
+            $data['page_banner'] = $request->file('page_banner')->store('web/asset', 'public');
+        }
+
+        $item->update($data);
+
+        return redirect()->back()->with('success', 'Global Settings Updated Successfully');
     }
 
     /**

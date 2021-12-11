@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -14,6 +14,10 @@ class LoginController extends Controller
      */
     public function index()
     {
+        if(Auth::user()) {
+            // return route('beranda.index');
+            return redirect()->route('beranda.index');
+        }
         return view('pages.auth.login');
     }
 
