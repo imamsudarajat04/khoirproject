@@ -32,7 +32,7 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-xl-12 col-lg-12">
-            <form action="{{ route('footer-setting.update', $data->id) }}" method="POST">
+            <form action="{{ route('header-setting.update', $data->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card shadow mb-2">
@@ -41,9 +41,9 @@
                         <div class="row">
                             <div class="col-12 col-md-12 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Judul Header</label>
+                                    <label class="col-12 control-label">Header Title</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="header_name" placeholder="Masukan Judul Header.." value="{{ old('header_name', $data->header_name) }}">
+                                        <input type="text" class="form-control" name="header_title" placeholder="Masukan Header Title.." value="{{ old('header_title', $data->header_title) }}">
                                     </div>
                                 </div>
                             </div>
@@ -51,17 +51,17 @@
                         <div class="row">
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Alamat Footer</label>
+                                    <label class="col-12 control-label">Header Subtitle</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_address" placeholder="Masukan Alamat.." value="{{ old('footer_address', $data->footer_address) }}">
+                                        <input type="text" class="form-control" name="header_subtitle" placeholder="Masukan Header Subtitle.." value="{{ old('header_subtitle', $data->header_subtitle) }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Telepon Footer</label>
+                                    <label class="col-12 control-label">Header Button Text</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_phone" placeholder="Masukan Telepon.." value="{{ old('footer_phone', $data->footer_phone) }}">
+                                        <input type="text" class="form-control" name="header_button_text" placeholder="Masukan Header Button Text.." value="{{ old('header_button_text', $data->header_button_text) }}">
                                     </div>
                                 </div>
                             </div>
@@ -69,63 +69,17 @@
                         <div class="row">
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Email Footer</label>
+                                    <label class="col-12 control-label">Email Header</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_email" placeholder="Masukan Email.." value="{{ old('footer_email', $data->footer_email) }}">
+                                        <input type="text" class="form-control" name="header_email" placeholder="Masukan Email.." value="{{ old('header_email', $data->header_email) }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Copyright Footer</label>
+                                    <label class="col-12 control-label">Nomor HP Header</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_copyright" placeholder="Masukan Copyright.." value="{{ old('footer_copyright', $data->footer_copyright) }}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-12 mb-2">
-                                <div class="row">
-                                    <label class="col-12 control-label">Designed Footer</label>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_designed" placeholder="Masukan Designed.." value="{{ old('footer_designed', $data->footer_designed) }}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="row">
-                                    <label for="" class="col-12 control-label">Link Twitter</label>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_twitter" placeholder="Masukan Link Twitter.." value="{{ old('footer_twitter', $data->footer_twitter) }}" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="row">
-                                    <label for="" class="col-12 control-label">Link Facebook</label>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_facebook" placeholder="Masukan Link Facebook.." value="{{ old('footer_facebook', $data->footer_facebook) }}" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="row">
-                                    <label for="" class="col-12 control-label">Link Instagram</label>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_instagram" placeholder="Masukan Link Instagram.." value="{{ old('footer_instagram', $data->footer_instagram) }}" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="row">
-                                    <label for="" class="col-12 control-label">Link Youtube</label>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="footer_youtube" placeholder="Masukan Link Youtube.." value="{{ old('footer_youtube', $data->footer_youtube) }}" required>
+                                        <input type="text" class="form-control" name="header_phone" placeholder="Masukan Nomor HP.." value="{{ old('header_phone', $data->header_phone) }}">
                                     </div>
                                 </div>
                             </div>

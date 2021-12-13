@@ -70,7 +70,11 @@ class HeaderSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = HomepageSetting::findOrFail($id);
+        $data = $request->all();
+        $item->update($data);
+        
+        return redirect()->back()->with('success', 'Header Settings Updated Successfully');
     }
 
     /**
