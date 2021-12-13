@@ -83,3 +83,7 @@
         </div>
     </div>
 @endsection
+
+@push('customjs')
+    
+@endpush
