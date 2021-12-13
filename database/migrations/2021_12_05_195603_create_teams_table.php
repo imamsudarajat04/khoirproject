@@ -18,7 +18,7 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('devision_id');
             $table->foreign('devision_id')->references('id')->on('devisions')->onUpdate('cascade')->onDelete('cascade');
-            // $table->string('avatar')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('facebook_link')->nullable();
             $table->string('twitter_link')->nullable();
             $table->string('instagram_link')->nullable();

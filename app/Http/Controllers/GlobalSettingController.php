@@ -77,7 +77,7 @@ class GlobalSettingController extends Controller
 
         if($request->hasFile('page_banner')) {
             Storage::delete('public/' . $item->page_banner);
-            $data['page_banner'] = $request->file('page_banner')->store('web/footer', 'public');
+            $data['page_banner'] = $request->file('page_banner')->store('web/global', 'public');
         }
 
         $item->update($data);
