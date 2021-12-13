@@ -24,7 +24,11 @@ Route::get('/logout', 'LoginController@logout')->name('login.logout');
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
     Route::resource('/beranda', 'DashboardController');
+
+    //Data User
+    Route::resource('/admin/data-user', "DataUserController");
     
+    //Setting
     Route::prefix('settings')->group(function() {
         Route::resource('header-setting', "HeaderSettingController");
         Route::resource('global-setting', "GlobalSettingController");

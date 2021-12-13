@@ -21,11 +21,11 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     
-    <!-- Nav Item - Data Devisi -->
+    {{-- <!-- Nav Item - Data Devisi -->
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-user-friends"></i>
-            <span>Data Devisi</span>
+            <span>Devisi</span>
         </a>
     </li>
     
@@ -33,7 +33,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-user-friends"></i>
-            <span>Data Team</span>
+            <span>Team</span>
         </a>
     </li>
 
@@ -41,10 +41,26 @@
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-users"></i>
-            <span>Data Akun</span>
+            <span>User</span>
         </a>
-    </li>
+    </li> --}}
 
+    
+    <!-- Nav Item - Data -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-users"></i>
+            <span>Data</span>
+        </a>
+        <div id="collapseOne" class="collapse active" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @yield('header')" href="{{ route('header-setting.index') }}">Data Devisi</a>
+                <a class="collapse-item @yield('global')" href="{{ route('global-setting.index') }}">Data Team</a>
+                <a class="collapse-item @yield('dataUser')" href="{{ route('data-user.index') }}">Data Akun</a>
+            </div>
+        </div>
+    </li>
     
     <!-- Nav Item - Pengaturan -->
     <li class="nav-item">

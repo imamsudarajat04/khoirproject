@@ -17,7 +17,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/DataTables/datatables.min.css') }}" />
     @stack('customcss')
+    {{-- script --}}
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 </head>
 
 <body id="page-top">
@@ -92,7 +96,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('vendor/DataTables/datatables.min.js') }}"></script>
     @stack('customjs')
 </body>
 
