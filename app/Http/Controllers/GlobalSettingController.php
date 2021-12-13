@@ -80,6 +80,11 @@ class GlobalSettingController extends Controller
             $data['page_banner'] = $request->file('page_banner')->store('web/global', 'public');
         }
 
+        if($request->hasFile('page_banner_about')) {
+            Storage::delete('public/' . $item->page_banner_about);
+            $data['page_banner_about'] = $request->file('page_banner_about')->store('web/global', 'public');
+        }
+
         $item->update($data);
 
         return redirect()->back()->with('success', 'Global Settings Updated Successfully');

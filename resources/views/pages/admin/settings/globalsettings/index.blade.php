@@ -67,12 +67,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-12 mb-2">
+                            <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
                                     <label class="col-12 control-label">Page Banner</label>
                                     <div class="col-12">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="page_banner" id="customFile1">
+                                            <label class="custom-file-label" for="customFile">Pilih..</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Page Banner About</label>
+                                    <div class="col-12">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="page_banner_about" id="customFile2">
                                             <label class="custom-file-label" for="customFile">Pilih..</label>
                                         </div>
                                     </div>
@@ -96,6 +107,17 @@
 @push('customjs')
     <script>
         $('#customFile1').on('change', function() {
+            //get the file name
+            var fileName = $(this).val();
+            //clean fake path
+            var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(cleanFileName);
+        });
+    </script>
+
+    <script>
+        $('#customFile2').on('change', function() {
             //get the file name
             var fileName = $(this).val();
             //clean fake path
