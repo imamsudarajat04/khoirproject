@@ -7,12 +7,10 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Kelola User</h1>
-        @can('user-create')
-            <a href="{{ route('user.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-plus fa-sm text-white-50"></i>
-                Tambah
-            </a>
-        @endcan
+        <a href="{{ route('data-user.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i>
+            Tambah
+        </a>
     </div>
 
     <!-- Alert -->
@@ -85,5 +83,48 @@
 @endsection
 
 @push('customjs')
-    
+<script>
+    var datatable = $('#tableUser').DataTable({
+        processing: true,
+        serverSide: true,
+        ordering: true,
+        ajax: '{!! url()->current() !!}',
+        order: [
+            [1, 'asc']
+        ],
+        columns: [{
+                data: 'DT_RowIndex',
+                name: 'DT_RowIndex',
+                width: '1%',
+                orderable: false,
+                searchable: false
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'email',
+                name: 'email',
+            },
+            {
+                data: 'role',
+                name: 'role',
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false,
+                width: '1%'
+            }
+        ],
+        sDom: '<"secondBar d-flex flex-wrap justify-content-between mb-2"lf>rt<"bottom"p>',
+
+        "fnCreatedRow": function(nRow, data) {
+            $(nRow).attr('id', 'user' + data.id);
+        },
+    });
+
+    </script>
 @endpush

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
 
 class DataUserController extends Controller
 {
@@ -13,7 +17,31 @@ class DataUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
+        if (request()->ajax()) {
+            $query = User::all();
+
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('data-user.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->editColumn('role', function($item) {
+                    return '
+                        <label class="badge badge-primary mr-2">' . $item->role . '</label>
+                    ';
+                })
+                ->rawColumns(['action', 'role'])
+                ->addIndexColumn()
+                ->make();
+        }
+
         return view('pages.admin.users.index');
     }
 
