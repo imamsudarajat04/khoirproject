@@ -22,6 +22,7 @@ class CreateGlobalSettingsTable extends Migration
             $table->integer('font_size_subtitle')->default(24);
             $table->string('page_banner')->nullable();
             $table->string('page_banner_about')->nullable();
+            $table->string('page_banner_testimonials')->nullable();
             $table->timestamps();
         });
 
