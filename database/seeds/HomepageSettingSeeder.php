@@ -12,7 +12,7 @@ class HomepageSettingSeeder extends Seeder
     public function run()
     {
         \App\HomepageSetting::create([
-            'header_name' => 'Khoir Project',
+            // 'header_name' => 'Khoir Project',
             'header_title' => 'Selamat Datang di Khoir Project',
             'header_subtitle' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quos.',
             'header_button_text' => 'Ayo Mulai',

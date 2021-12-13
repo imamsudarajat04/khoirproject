@@ -15,7 +15,7 @@ class CreateHomepageSettingsTable extends Migration
     {
         Schema::create('homepage_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('header_name')->default('Khoir Project');
+            // $table->string('header_name')->default('Khoir Project');
             $table->string('header_title');
             $table->string('header_subtitle');
             $table->string('header_button_text');

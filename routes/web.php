@@ -26,8 +26,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
     Route::resource('/beranda', 'DashboardController');
     
     Route::prefix('settings')->group(function() {
-        Route::resource('footer-setting', "FooterSettingController");
+        Route::resource('header-setting', "HeaderSettingController");
         Route::resource('global-setting', "GlobalSettingController");
+        Route::resource('footer-setting', "FooterSettingController");
     });
 } );
 

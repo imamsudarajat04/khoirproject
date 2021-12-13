@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\GlobalSetting;
+use App\HomepageSetting;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class GlobalSettingController extends Controller
+class HeaderSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class GlobalSettingController extends Controller
      */
     public function index()
     {
-        $data = GlobalSetting::first();
-        return view('pages.admin.settings.globalsettings.index', compact('data'));
+        $data = HomepageSetting::first();
+        return view('pages.admin.settings.headersettings.index', compact('data'));
     }
 
     /**
@@ -71,27 +70,7 @@ class GlobalSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = GlobalSetting::find($id);
-        $data = $request->all();
-
-        if($request->hasFile('page_banner')) {
-            Storage::delete('public/' . $item->page_banner);
-            $data['page_banner'] = $request->file('page_banner')->store('web/global', 'public');
-        }
-
-        if($request->hasFile('page_banner_about')) {
-            Storage::delete('public/' . $item->page_banner_about);
-            $data['page_banner_about'] = $request->file('page_banner_about')->store('web/global', 'public');
-        }
-
-        if($request->hasFile('page_banner_testimonials')) {
-            Storage::delete('public/' . $item->page_banner_testimonials);
-            $data['page_banner_testimonials'] = $request->file('page_banner_testimonials')->store('web/global', 'public');
-        }
-
-        $item->update($data);
-
-        return redirect()->back()->with('success', 'Global Settings Updated Successfully');
+        //
     }
 
     /**
