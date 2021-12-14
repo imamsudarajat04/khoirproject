@@ -52,7 +52,7 @@ class DataUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.users.create');
     }
 
     /**
@@ -61,9 +61,14 @@ class DataUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+
+        $user = User::create($data);
+
+        return redirect()->route('data-user.index')->with('success', 'Akun Berhasil Ditambahkan');
     }
 
     /**
