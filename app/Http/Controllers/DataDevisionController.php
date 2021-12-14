@@ -35,9 +35,16 @@ class DataDevisionController extends Controller
                     ';
                 })
                 ->editColumn('description', function($item) {
-                    return '
-                        <p class="line-clamp">' . $item->description . '</p>
-                    ';
+                    if($item->description == "")
+                    {
+                        return 'Tidak ada deskripsi';
+                    }
+                    else
+                    {
+                        return '
+                            <p class="line-clamp">' . $item->description . '</p>
+                        ';
+                    }
                 })
                 ->rawColumns(['action', 'description'])
                 ->addIndexColumn()
