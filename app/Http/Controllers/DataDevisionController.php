@@ -98,7 +98,8 @@ class DataDevisionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Devision::findOrFail($id);
+        return view('pages.admin.devision.edit', compact('data'));
     }
 
     /**
@@ -106,11 +107,16 @@ class DataDevisionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responsea
      */
-    public function update(Request $request, $id)
+    public function update(DevisionRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+        $item = Devision::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('data-devisi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
