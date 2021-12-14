@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Faq;
 use Illuminate\Http\Request;
+use App\Http\Requests\FaqRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class FaqController extends Controller
 {
@@ -13,6 +15,24 @@ class FaqController extends Controller
      */
     public function index(Request $request)
     {
+        if (request()->ajax()) {
+            $query = Faq::all();
+
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('faq.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->addIndexColumn()
+                ->make();
+        }
         return view('pages.admin.faq.index');
     }
 
