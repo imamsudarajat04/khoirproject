@@ -125,6 +125,8 @@ class DataUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = User::findOrFail($id)->delete();
+
+        return response()->json($result);
     }
 }

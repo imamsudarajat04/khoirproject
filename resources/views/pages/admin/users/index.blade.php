@@ -126,5 +126,32 @@
         },
     });
 
+    $(document).on("click", ".delete_modal", function() {
+        var id = $(this).data('id');
+        $(".modal-footer .delete-user").val(id);
+    });
+
+    jQuery(document).ready(function($) {
+        ////----- DELETE a link and remove from the page -----////
+        jQuery('.delete-user').click(function() {
+            var user_id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "DELETE",
+                url: 'data-user/' + user_id,
+                success: function(data) {
+                    $('#exampleModal').modal('hide');
+                    $("#user" + user_id).remove();
+                    $(".delete-response").append(
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data User Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
+                    )
+                }
+            });
+        });
+    });
     </script>
 @endpush
