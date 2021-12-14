@@ -90,7 +90,9 @@ class DataUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrFail($id);
+        return view('pages.admin.users.edit', compact('data'));
+
     }
 
     /**
