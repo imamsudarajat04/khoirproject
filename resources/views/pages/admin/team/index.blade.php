@@ -34,12 +34,13 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered dt-responsive nowrap w-100 display" id="tableDevisi">
+                        <table class="table table-striped table-bordered dt-responsive nowrap w-100 display" id="tableTeam">
                             <thead>
                                 <tr>
                                     <th width="70px">No</th>
+                                    <th>Nama</th>
                                     <th>Nama Devisi</th>
-                                    <th>Deksripsi Devisi</th>
+                                    <th>Avatar</th>
                                     <th width="150px">Action</th>
                                 </tr>
                             </thead>
@@ -64,10 +65,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Anda yakin ingin menghapus user ini ?</p>
+                    <p>Anda yakin ingin menghapus data team ini ?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger delete-devisi" value="">
+                    <button class="btn btn-danger delete-team" value="">
                         <strong>
                             Hapus
                         </strong>
@@ -83,7 +84,7 @@
 
 @push('customjs')
 <script>
-    var datatable = $('#tableDevisi').DataTable({
+    var datatable = $('#tableTeam').DataTable({
         processing: true,
         serverSide: true,
         ordering: true,
@@ -103,8 +104,12 @@
                 name: 'name'
             },
             {
-                data: 'description',
-                name: 'description',
+                data: 'devision_name',
+                name: 'devision_name',
+            },
+            {
+                data: 'avatar',
+                name: 'avatar',
             },
             {
                 data: 'action',
@@ -117,19 +122,19 @@
         sDom: '<"secondBar d-flex flex-wrap justify-content-between mb-2"lf>rt<"bottom"p>',
 
         "fnCreatedRow": function(nRow, data) {
-            $(nRow).attr('id', 'devisi' + data.id);
+            $(nRow).attr('id', 'team' + data.id);
         },
     });
 
     $(document).on("click", ".delete_modal", function() {
         var id = $(this).data('id');
-        $(".modal-footer .delete-devisi").val(id);
+        $(".modal-footer .delete-team").val(id);
     });
 
     jQuery(document).ready(function($) {
         ////----- DELETE a link and remove from the page -----////
-        jQuery('.delete-devisi').click(function() {
-            var devisi_id = $(this).val();
+        jQuery('.delete-team').click(function() {
+            var team_id = $(this).val();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -137,12 +142,12 @@
             });
             $.ajax({
                 type: "DELETE",
-                url: 'data-devisi/' + devisi_id,
+                url: 'data-team/' + team_id,
                 success: function(data) {
                     $('#exampleModal').modal('hide');
-                    $("#devisi" + devisi_id).remove();
+                    $("#team" + team_id).remove();
                     $(".delete-response").append(
-                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Devisi Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Team Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
                     )
                 }
             });

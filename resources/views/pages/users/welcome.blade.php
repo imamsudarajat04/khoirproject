@@ -315,7 +315,7 @@
               <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                 <div class="member">
                   <div class="member-img">
-                    <img src="{{ Storage::exists('public/' . $team->avatar) && $team->avatar ? Storage::url($team->avatar) : asset('asset/img/team/team-1.jpg') }}" class="img-fluid" alt="">
+                    <img src="{{ Storage::exists('public/' . $team->avatar) && $team->avatar ? Storage::url($team->avatar) : asset('asset/img/team/team-1.jpg') }}" class="img-fluid" alt="{{ $team->name }}">
                     <div class="social">
                       <a href="{{ $team->twitter_link }}"><i class="bi bi-twitter"></i></a>
                       <a href="{{ $team->facebook_link }}"><i class="bi bi-facebook"></i></a>

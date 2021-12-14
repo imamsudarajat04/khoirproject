@@ -64,7 +64,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Anda yakin ingin menghapus user ini ?</p>
+                    <p>Anda yakin ingin menghapus data devisi ini ?</p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger delete-devisi" value="">
