@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Devision;
 use Illuminate\Http\Request;
+use App\Http\Requests\DevisionRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class DataDevisionController extends Controller
 {
@@ -11,9 +14,32 @@ class DataDevisionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if (request()->ajax()) {
+            $query = Devision::all();
+
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('data-devisi.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->editColumn('description', function($item) {
+                    return '
+                        <p class="line-clamp">' . $item->description . '</p>
+                    ';
+                })
+                ->rawColumns(['action', 'description'])
+                ->addIndexColumn()
+                ->make();
+        }
+        return view('pages.admin.devision.index');
     }
 
     /**
