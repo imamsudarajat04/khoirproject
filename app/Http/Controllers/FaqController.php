@@ -79,7 +79,8 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Faq::findOrFail($id);
+        return view('pages.admin.faq.edit', compact('data'));
     }
 
     /**
@@ -89,9 +90,12 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FaqRequest $request, $id)
     {
-        //
+        $data = Faq::findOrFail($id);
+        $data->update($request->all());
+
+        return redirect()->route('faq.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -102,6 +106,8 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Faq::findOrFail($id)->delete();
+
+        return response()->json(['success' => $result]);
     }
 }

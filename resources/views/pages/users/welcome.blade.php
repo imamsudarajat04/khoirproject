@@ -399,7 +399,7 @@
             <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="200">
               <div class="info-box">
                 <i class="bx bx-phone-call"></i>
-                <h3>Call Us</h3>
+                <h3>Hubungi</h3>
                 <p>{!! $footer_settings->footer_phone !!}</p>
               </div>
             </div>
