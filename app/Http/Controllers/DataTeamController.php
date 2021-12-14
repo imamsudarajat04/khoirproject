@@ -54,7 +54,8 @@ class DataTeamController extends Controller
      */
     public function create()
     {
-        //
+        $devisions = Devision::all();
+        return view('pages.admin.team.create', compact('devisions'));
     }
 
     /**
@@ -63,9 +64,13 @@ class DataTeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['avatar'] = $request->file('avatar')->store('web/avatar', 'public');
+
+        Team::create($data);
+        return redirect()->route('data-team.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

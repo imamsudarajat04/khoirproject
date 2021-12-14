@@ -1,13 +1,13 @@
 @extends('pages.admin.dashboard.layouts.master')
 
-@section('title', 'Halaman Data Devisi')
-@section('dataDevisi', 'active')
+@section('title', 'Halaman Data Team')
+@section('dataTeam', 'active')
 
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Kelola Devisi</h1>
-        <a href="{{ route('data-devisi.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <h1 class="h3 mb-0 text-gray-800">Kelola Team</h1>
+        <a href="{{ route('data-team.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Tambah
         </a>
