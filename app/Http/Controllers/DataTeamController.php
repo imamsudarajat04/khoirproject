@@ -24,7 +24,7 @@ class DataTeamController extends Controller
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <a class="btn btn-primary" href="' . route('data-devisi.edit', $item->id) . '">
+                        <a class="btn btn-primary" href="' . route('data-team.edit', $item->id) . '">
                             Ubah
                         </a>
                         <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
@@ -92,7 +92,10 @@ class DataTeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Team::findOrFail($id);
+        $devisions = Devision::all();
+
+        return view('pages.admin.team.edit', compact('data', 'devisions'));
     }
 
     /**
@@ -104,7 +107,16 @@ class DataTeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Team::findOrFail($id);
+        $data = $request->all();
+
+        if ($request->hasFile('avatar')) {
+            Storage::delete('public/' . $item->avatar);
+            $data['avatar'] = $request->file('avatar')->store('web/avatar', 'public');
+        }
+
+        $item->update($data);
+        return redirect()->route('data-team.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -115,6 +127,12 @@ class DataTeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Team::findOrFail($id);
+        Storage::delete('public/' . $data->avatar);
+
+        $result = $data->delete();
+
+        return response()->json($result);
+
     }
 }
