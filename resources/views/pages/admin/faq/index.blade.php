@@ -7,7 +7,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Kelola Faq</h1>
-        <a href="{{ route('data-team.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('faq.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Tambah
         </a>
@@ -64,10 +64,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Anda yakin ingin menghapus data team ini ?</p>
+                    <p>Anda yakin ingin menghapus data faq ini ?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger delete-team" value="">
+                    <button class="btn btn-danger delete-faq" value="">
                         <strong>
                             Hapus
                         </strong>
@@ -123,13 +123,13 @@
 
     $(document).on("click", ".delete_modal", function() {
         var id = $(this).data('id');
-        $(".modal-footer .delete-team").val(id);
+        $(".modal-footer .delete-faq").val(id);
     });
 
     jQuery(document).ready(function($) {
         ////----- DELETE a link and remove from the page -----////
-        jQuery('.delete-team').click(function() {
-            var team_id = $(this).val();
+        jQuery('.delete-faq').click(function() {
+            var faq_id = $(this).val();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -137,12 +137,12 @@
             });
             $.ajax({
                 type: "DELETE",
-                url: 'data-team/' + team_id,
+                url: 'faq/' + faq_id,
                 success: function(data) {
                     $('#exampleModal').modal('hide');
-                    $("#team" + team_id).remove();
+                    $("#faq" + faq_id).remove();
                     $(".delete-response").append(
-                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Team Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Faq Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
                     )
                 }
             });

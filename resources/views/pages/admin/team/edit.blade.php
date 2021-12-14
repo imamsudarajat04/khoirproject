@@ -6,7 +6,7 @@
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Data Team Baru</h1>
+        <h1 class="h3 mb-0 text-gray-800">Ubah Data Team </h1>
         <div class="pull-right">
             <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="{{ route('data-team.index') }}"><i class="fas fa-caret-left"></i> Kembali</a>
         </div>
@@ -102,7 +102,7 @@
                                     <div class="row">
                                         <label class="col-12">Link Linkedin</label>
                                         <div class="col-12">
-                                            <input type="text" class="form-control" name="linked_link" placeholder="Masukan Link Linkedin" value="{{ old('linked_link', $data->linked_link) }}">
+                                            <input type="text" class="form-control" name="linkedin_link" placeholder="Masukan Link Linkedin" value="{{ old('linkedin_link', $data->linkedin_link) }}">
                                         </div>
                                     </div>
                                 </div>

@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FooterSettingSeeder::class);
         $this->call(HomepageSettingSeeder::class);
         $this->call(TeamSeeder::class);
+        $this->call(FaqSeeder::class);
     }
 }

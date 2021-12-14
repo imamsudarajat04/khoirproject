@@ -43,7 +43,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.faq.create');
     }
 
     /**
@@ -52,9 +52,12 @@ class FaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FaqRequest $request)
     {
-        //
+        $data = $request->all();
+        Faq::create($data);
+
+        return redirect()->route('faq.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

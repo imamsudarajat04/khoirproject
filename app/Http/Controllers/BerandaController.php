@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Faq;
 use App\Team;
 use App\Devision;
 use App\FooterSetting;
@@ -26,7 +27,8 @@ class BerandaController extends Controller
             $devision = Devision::where('id', $team->devision_id)->first();
             $team->devision_name = $devision->name;
         }
-        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams'));
+        $faqs = Faq::take(4)->get();
+        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs'));
     }
 
     /**

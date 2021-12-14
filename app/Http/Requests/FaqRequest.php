@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FaqRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class FaqRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -23,8 +24,18 @@ class FaqRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            $rules = [
+                'question' => 'required|string',
+                'answer'   => 'required|string',
+            ];
+        } else {
+            $rules = [
+                'question' => 'required|string',
+                'answer'   => 'required|string',
+            ];
+        }
+
+        return $rules;
     }
 }
