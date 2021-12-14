@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Faq;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -11,9 +11,9 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('pages.admin.faq.index');
     }
 
     /**

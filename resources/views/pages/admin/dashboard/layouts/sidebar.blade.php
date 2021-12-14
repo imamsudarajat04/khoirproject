@@ -63,8 +63,8 @@
     </li>
 
     <!-- Nav Item - Faq -->
-    <li class="nav-item">
-        <a class="nav-link @yield('faq')" href="#">
+    <li class="nav-item @yield('faq')">
+        <a class="nav-link" href="{{ route('faq.index') }}">
             <i class="fas fa-question"></i>
             <span>Faq</span>
         </a>

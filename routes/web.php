@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //Data Team
     Route::resource('/admin/data-team', "DataTeamController");
+
+    //Faq
+    Route::resource('/admin/faq', "FaqController");
     
     //Setting
     Route::prefix('settings')->group(function() {
