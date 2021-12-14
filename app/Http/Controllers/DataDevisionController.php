@@ -74,7 +74,8 @@ class DataDevisionController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Devision::findOrFail($id);
+        return view('pages.admin.devision.show', compact('data'));
     }
 
     /**
