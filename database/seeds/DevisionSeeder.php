@@ -22,7 +22,7 @@ class DevisionSeeder extends Seeder
             $data = [
                 'name' => $name,
                 'slug' => Str::slug($name),
-                'description' => $name.' description',
+                'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ];

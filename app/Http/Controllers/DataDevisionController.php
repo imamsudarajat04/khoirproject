@@ -22,6 +22,9 @@ class DataDevisionController extends Controller
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
+                        <a class="btn btn-success" href="' . route('data-devisi.show', $item->id) . '">
+                            Lihat
+                        </a>
                         <a class="btn btn-primary" href="' . route('data-devisi.edit', $item->id) . '">
                             Ubah
                         </a>
