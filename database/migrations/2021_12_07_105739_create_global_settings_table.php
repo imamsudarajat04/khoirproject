@@ -23,6 +23,10 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('page_banner')->nullable();
             $table->string('page_banner_about')->nullable();
             $table->string('page_banner_testimonials')->nullable();
+            $table->string('subtitle_services')->nullable();
+            $table->string('subtitle_team')->nullable();
+            $table->string('subtitle_faq')->nullable();
+            $table->string('subtitle_contact')->nullable();
             $table->timestamps();
         });
 
