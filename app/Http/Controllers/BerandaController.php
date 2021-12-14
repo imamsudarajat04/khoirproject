@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Team;
 use App\Devision;
 use App\FooterSetting;
 use App\GlobalSetting;
@@ -20,7 +21,12 @@ class BerandaController extends Controller
         $header_settings = HomepageSetting::first();
         $footer_settings = FooterSetting::first();
         $global_settings = GlobalSetting::first();
-        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings'));
+        $teams = Team::take(4)->get();
+        foreach ($teams as $team) {
+            $devision = Devision::where('id', $team->devision_id)->first();
+            $team->devision_name = $devision->name;
+        }
+        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams'));
     }
 
     /**
