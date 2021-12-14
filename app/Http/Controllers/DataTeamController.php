@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
 use Illuminate\Http\Request;
+use App\Http\Requests\TeamRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class DataTeamController extends Controller
 {

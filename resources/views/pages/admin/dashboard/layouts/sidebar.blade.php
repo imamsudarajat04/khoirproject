@@ -56,7 +56,7 @@
         <div id="collapseOne" class="collapse active" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item @yield('dataDevisi')" href="{{ route('data-devisi.index') }}">Data Devisi</a>
-                <a class="collapse-item @yield('global')" href="{{ route('global-setting.index') }}">Data Team</a>
+                <a class="collapse-item @yield('dataTeam')" href="{{ route('data-team.index') }}">Data Team</a>
                 <a class="collapse-item @yield('dataUser')" href="{{ route('data-user.index') }}">Data Akun</a>
             </div>
         </div>

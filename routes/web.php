@@ -30,6 +30,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //Data Devisi
     Route::resource('/admin/data-devisi', "DataDevisionController");
+
+    //Data Team
+    Route::resource('/admin/data-team', "DataTeamController");
     
     //Setting
     Route::prefix('settings')->group(function() {
