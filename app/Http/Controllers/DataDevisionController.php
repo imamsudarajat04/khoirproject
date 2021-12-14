@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Devision;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\DevisionRequest;
 use Yajra\DataTables\Facades\DataTables;
@@ -52,7 +53,7 @@ class DataDevisionController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.devision.create');
     }
 
     /**
@@ -61,9 +62,13 @@ class DataDevisionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DevisionRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+
+        Devision::create($data);
+        return redirect()->route('data-devisi.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

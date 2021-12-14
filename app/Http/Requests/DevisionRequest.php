@@ -26,15 +26,13 @@ class DevisionRequest extends FormRequest
     {
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
             $rules = [
-                'name'            => 'required',
-                'slug'            => 'required',
-                'description'     => 'required'
+                'name'            => 'required|string',
+                'description'     => 'nullable'
             ];
         } else {
             $rules = [
-                'name'            => 'required',
-                'slug'            => 'required',
-                'description'     => 'required'
+                'name'            => 'required|string',
+                'description'     => 'nullable'
             ];
         }
 

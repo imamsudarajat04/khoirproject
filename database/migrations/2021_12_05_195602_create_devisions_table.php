@@ -17,7 +17,7 @@ class CreateDevisionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('description', 10000);
+            $table->string('description', 10000)->nullable();
             $table->timestamps();
         });
     }
