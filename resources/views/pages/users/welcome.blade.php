@@ -116,7 +116,11 @@
   
           <div class="section-title" data-aos="fade-up">
             <h2>Services</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            @if ($global_settings->subtitle_services == "")
+              <p>Tidak Ada Subtitle</p>
+            @else
+              <p>{{ $global_settings->subtitle_services }}</p>
+            @endif
           </div>
   
           <div class="row">
@@ -299,7 +303,11 @@
   
           <div class="section-title">
             <h2 data-aos="fade-up">Team</h2>
-            <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            @if ($global_settings->subtitle_team == "")
+              <p data-aos="fade-up">Tidak Ada Subtitle</p>
+            @else
+              <p data-aos="fade-up">{{ $global_settings->subtitle_team }}</p>
+            @endif
           </div>
   
           <div class="row">
@@ -333,7 +341,11 @@
   
           <div class="section-title">
             <h2 data-aos="fade-up">F.A.Q</h2>
-            <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            @if ($global_settings->subtitle_faq == "")
+              <p data-aos="fade-up">Tidak Ada Subtitle</p>  
+            @else
+              <p data-aos="fade-up">{{ $global_settings->subtitle_faq }}</p>
+            @endif
           </div>
   
           <div class="faq-list">
@@ -395,7 +407,11 @@
   
           <div class="section-title">
             <h2 data-aos="fade-up">Contact</h2>
-            <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            @if ($global_settings->subtitle_contact == "")
+              <p data-aos="fade-up">Tidak Ada Subtitle</p>
+            @else
+              <p data-aos="fade-up">{{ $global_settings->subtitle_contact }}</p>
+            @endif
           </div>
   
           <div class="row justify-content-center">
