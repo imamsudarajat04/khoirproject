@@ -102,9 +102,19 @@ class DataUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        if(!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            $data = Arr::except($data, array('password'));
+        }
+
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('data-user.index')->with('success', 'Akun Berhasil Diubah');
     }
 
     /**
