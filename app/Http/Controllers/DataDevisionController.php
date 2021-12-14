@@ -127,6 +127,8 @@ class DataDevisionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Devision::findOrFail($id)->delete();
+        
+        return response()->json($result);
     }
 }
