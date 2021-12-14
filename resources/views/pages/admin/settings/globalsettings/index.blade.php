@@ -103,6 +103,42 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Services</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_services" placeholder="Masukan Subtitle Services.." value="{{ old('subtitle_services', $data->subtitle_services) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Team</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_team" placeholder="Masukan Subtitle Team.." value="{{ old('subtitle_team', $data->subtitle_team) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Faq</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_faq" placeholder="Masukan Subtitle Faq.." value="{{ old('subtitle_faq', $data->subtitle_faq) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Contact</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_contact" placeholder="Masukan Subtitle Contact.." value="{{ old('subtitle_contact', $data->subtitle_contact) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
