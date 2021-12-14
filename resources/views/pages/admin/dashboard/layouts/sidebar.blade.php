@@ -61,6 +61,14 @@
             </div>
         </div>
     </li>
+
+    <!-- Nav Item - Faq -->
+    <li class="nav-item">
+        <a class="nav-link @yield('faq')" href="#">
+            <i class="fas fa-question"></i>
+            <span>Faq</span>
+        </a>
+    </li>
     
     <!-- Nav Item - Pengaturan -->
     <li class="nav-item">
