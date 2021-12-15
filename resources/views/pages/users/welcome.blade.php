@@ -238,7 +238,7 @@
                 </div>
               </div><!-- End testimonial item -->
   
-              <div class="swiper-slide">
+              {{-- <div class="swiper-slide">
                 <div class="testimonial-item">
                   <img src="asset/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                   <h3>Sara Wilsson</h3>
@@ -288,7 +288,7 @@
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
                 </div>
-              </div><!-- End testimonial item -->
+              </div><!-- End testimonial item --> --}}
   
             </div>
             <div class="swiper-pagination"></div>
