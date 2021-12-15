@@ -62,6 +62,14 @@
         </div>
     </li>
 
+    <!-- Nav Item - Testimoni -->
+    <li class="nav-item @yield('testimoni')">
+        <a class="nav-link" href="{{ route('testimoni.index') }}">
+            <i class="fas fa-smile-beam"></i>
+            <span>Testimoni</span>
+        </a>
+    </li>
+
     <!-- Nav Item - Faq -->
     <li class="nav-item @yield('faq')">
         <a class="nav-link" href="{{ route('faq.index') }}">

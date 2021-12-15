@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //Faq
     Route::resource('/admin/faq', "FaqController");
+
+    //Tesimoni
+    Route::resource('/admin/testimoni', "TestimoniController");
     
     //Setting
     Route::prefix('settings')->group(function() {
