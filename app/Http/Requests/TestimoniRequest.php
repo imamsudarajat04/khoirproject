@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TestimoniRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class TestimoniRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -23,8 +24,22 @@ class TestimoniRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            $rules = [
+                'name'            => 'required|string',
+                'position'        => 'required|string',
+                'description'     => 'required',
+                'avatar'          => 'file|mimes:png,jpg,jpeg',
+            ];
+        } else {
+            $rules = [
+                'name'            => 'required|string',
+                'position'        => 'required|string',
+                'description'     => 'required',
+                'avatar'          => 'required|file|mimes:png,jpg,jpeg',
+            ];
+        }
+
+        return $rules;
     }
 }
