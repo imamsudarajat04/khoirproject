@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class TestimoniController extends Controller
@@ -12,9 +13,46 @@ class TestimoniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if (request()->ajax()) {
+            $query = Testimonial::all();
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('data-team.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->editColumn('description', function($item) {
+                    if($item->description == "")
+                    {
+                        return 'Tidak ada deskripsi';
+                    }
+                    else
+                    {
+                        return '
+                            <p class="line-clamp">' . $item->description . '</p>
+                        ';
+                    }
+                })
+                ->editColumn('avatar', function ($item) {
+                    $image = Storage::exists('public/' . $item->avatar) && $item->avatar ? Storage::url($item->avatar) : asset('asset/img/team/team-1.jpg');
+                    return '
+                        <div class="image-wrapper">
+                            <div class="image" style="background-image: url(' . $image . ')"></div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action', 'description', 'avatar'])
+                ->addIndexColumn()
+                ->make();
+        }
+        return view('pages.admin.testimoni.index');
     }
 
     /**

@@ -1,13 +1,13 @@
 @extends('pages.admin.dashboard.layouts.master')
 
-@section('title', 'Halaman Faq')
-@section('faq', 'active')
+@section('title', 'Halaman Testimoni')
+@section('testimoni', 'active')
 
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Kelola Faq</h1>
-        <a href="{{ route('faq.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <h1 class="h3 mb-0 text-gray-800">Kelola Testimoni</h1>
+        <a href="{{ route('testimoni.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Tambah
         </a>
@@ -34,12 +34,14 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered dt-responsive nowrap w-100 display" id="tableFaq">
+                        <table class="table table-striped table-bordered dt-responsive nowrap w-100 display" id="tableTestimoni">
                             <thead>
                                 <tr>
                                     <th width="70px">No</th>
-                                    <th>Pertanyaan</th>
-                                    <th>Jawaban</th>
+                                    <th>Nama</th>
+                                    <th>Posisi</th>
+                                    <th>Deskripsi</th>
+                                    <th>Avatar</th>
                                     <th width="150px">Action</th>
                                 </tr>
                             </thead>
@@ -64,10 +66,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Anda yakin ingin menghapus data faq ini ?</p>
+                    <p>Anda yakin ingin menghapus data testimoni ini ?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger delete-faq" value="">
+                    <button class="btn btn-danger delete-testimoni" value="">
                         <strong>
                             Hapus
                         </strong>
@@ -83,7 +85,7 @@
 
 @push('customjs')
 <script>
-    var datatable = $('#tableFaq').DataTable({
+    var datatable = $('#tableTestimoni').DataTable({
         processing: true,
         serverSide: true,
         ordering: true,
@@ -99,12 +101,20 @@
                 searchable: false
             },
             {
-                data: 'question',
-                name: 'question'
+                data: 'name',
+                name: 'name'
             },
             {
-                data: 'answer',
-                name: 'answer',
+                data: 'position',
+                name: 'position',
+            },
+            {
+                data: 'description',
+                name: 'description',
+            },
+            {
+                data: 'avatar',
+                name: 'avatar',
             },
             {
                 data: 'action',
@@ -117,19 +127,19 @@
         sDom: '<"secondBar d-flex flex-wrap justify-content-between mb-2"lf>rt<"bottom"p>',
 
         "fnCreatedRow": function(nRow, data) {
-            $(nRow).attr('id', 'faq' + data.id);
+            $(nRow).attr('id', 'testimoni' + data.id);
         },
     });
 
     $(document).on("click", ".delete_modal", function() {
         var id = $(this).data('id');
-        $(".modal-footer .delete-faq").val(id);
+        $(".modal-footer .delete-testimoni").val(id);
     });
 
     jQuery(document).ready(function($) {
         ////----- DELETE a link and remove from the page -----////
-        jQuery('.delete-faq').click(function() {
-            var faq_id = $(this).val();
+        jQuery('.delete-testimoni').click(function() {
+            var testimoni_id = $(this).val();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -137,12 +147,12 @@
             });
             $.ajax({
                 type: "DELETE",
-                url: 'faq/' + faq_id,
+                url: 'testimoni/' + testimoni_id,
                 success: function(data) {
                     $('#exampleModal').modal('hide');
-                    $("#faq" + faq_id).remove();
+                    $("#testimoni" + testimoni_id).remove();
                     $(".delete-response").append(
-                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Faq Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Testimoni Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
                     )
                 }
             });
