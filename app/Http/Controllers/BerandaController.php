@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Faq;
 use App\Team;
 use App\Devision;
+use App\Testimonial;
 use App\FooterSetting;
 use App\GlobalSetting;
 use App\HomepageSetting;
@@ -28,7 +29,8 @@ class BerandaController extends Controller
             $team->devision_name = $devision->name;
         }
         $faqs = Faq::take(4)->get();
-        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs'));
+        $testimonis = Testimonial::take(5)->get();
+        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs', 'testimonis'));
     }
 
     /**
