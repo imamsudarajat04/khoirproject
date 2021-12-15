@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Testimonial;
 use Illuminate\Http\Request;
+use App\Http\Requests\TestimoniRequest;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -62,7 +63,7 @@ class TestimoniController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.testimoni.create');
     }
 
     /**
@@ -71,9 +72,9 @@ class TestimoniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TestimoniRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
