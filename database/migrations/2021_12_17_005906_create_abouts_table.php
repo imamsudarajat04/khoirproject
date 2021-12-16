@@ -15,18 +15,18 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle', 500);
-            $table->string('link_youtube');
-            $table->string('title_point_one');
-            $table->string('subtitle_point_one');
-            $table->string('icon_point_one');
-            $table->string('title_point_two');
-            $table->string('subtitle_point_two');
-            $table->string('icon_point_two');  
-            $table->string('title_point_three');
-            $table->string('subtitle_point_three');
-            $table->string('icon_point_three');
+            $table->string('title')->nullable();
+            $table->string('subtitle', 500)->nullable();
+            $table->string('link_youtube')->nullable();
+            $table->string('title_point_one')->nullable();
+            $table->string('subtitle_point_one')->nullable();
+            $table->string('icon_point_one')->nullable();
+            $table->string('title_point_two')->nullable();
+            $table->string('subtitle_point_two')->nullable();   
+            $table->string('icon_point_two')->nullable();;  
+            $table->string('title_point_three')->nullable();
+            $table->string('subtitle_point_three')->nullable();
+            $table->string('icon_point_three')->nullable();
             $table->timestamps();
         });
     }

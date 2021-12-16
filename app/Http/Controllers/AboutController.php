@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\About;
 use Illuminate\Http\Request;
+use App\Http\Requests\AboutRequest;
 
 class AboutController extends Controller
 {
@@ -68,9 +69,13 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AboutRequest $request, $id)
     {
-        //
+        $data = About::findOrFail($id);
+        $item = $request->all();
+
+        $data->update($item);
+        return redirect()->route('about-us.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
