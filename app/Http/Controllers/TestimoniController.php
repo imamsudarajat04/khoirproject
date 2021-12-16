@@ -74,7 +74,11 @@ class TestimoniController extends Controller
      */
     public function store(TestimoniRequest $request)
     {
-        dd($request->all());
+        $data = $request->all();
+        $data['avatar'] = $request->file('avatar')->store('web/testi/avatar', 'public');
+
+        Testimonial::create($data);
+        return redirect()->route('testimoni.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -96,7 +100,7 @@ class TestimoniController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Testimonial::findOrFail($id);
     }
 
     /**

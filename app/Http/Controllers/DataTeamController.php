@@ -67,7 +67,7 @@ class DataTeamController extends Controller
     public function store(TeamRequest $request)
     {
         $data = $request->all();
-        $data['avatar'] = $request->file('avatar')->store('web/avatar', 'public');
+        $data['avatar'] = $request->file('avatar')->store('web/team/avatar', 'public');
 
         Team::create($data);
         return redirect()->route('data-team.index')->with('success', 'Data berhasil ditambahkan');
