@@ -17,6 +17,7 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle', 500);
+            $table->string('link_youtube');
             $table->string('title_point_one');
             $table->string('subtitle_point_one');
             $table->string('icon_point_one');

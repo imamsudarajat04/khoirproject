@@ -15,6 +15,7 @@ class AboutSeeder extends Seeder
         \App\About::create([
             'title' => 'Enim quis est voluptatibus aliquid consequatur fugiat',
             'subtitle' => 'Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.',
+            'link_youtube' => 'https://www.youtube.com/watch?v=J3sxLuDKjiY',
             'title_point_one' => 'Lorem Ipsum',
             'subtitle_point_one' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident',
             'icon_point_one' => 'bx bx-fingerprint',
