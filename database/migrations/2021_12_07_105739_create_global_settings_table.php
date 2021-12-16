@@ -17,7 +17,9 @@ class CreateGlobalSettingsTable extends Migration
         Schema::create('global_settings', function (Blueprint $table) {
             $table->id();
             $table->string('navbar_title')->default('Khoir Project');
-            // $table->string('primary_color')->default('#ff5821');
+            $table->string('primary_color')->default('#2fa13a');
+            $table->string('secondary_color')->default('#999999');
+            $table->string('navbar_color')->default('#fff');
             $table->integer('font_size_title')->default(48);
             $table->integer('font_size_subtitle')->default(24);
             $table->string('page_banner')->nullable();
