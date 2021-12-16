@@ -112,7 +112,7 @@ class DataTeamController extends Controller
 
         if ($request->hasFile('avatar')) {
             Storage::delete('public/' . $item->avatar);
-            $data['avatar'] = $request->file('avatar')->store('web/avatar', 'public');
+            $data['avatar'] = $request->file('avatar')->store('web/team/avatar', 'public');
         }
 
         $item->update($data);

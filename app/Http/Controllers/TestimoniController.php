@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Requests\TestimoniRequest;
@@ -21,7 +22,7 @@ class TestimoniController extends Controller
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <a class="btn btn-primary" href="' . route('data-team.edit', $item->id) . '">
+                        <a class="btn btn-primary" href="' . route('testimoni.edit', $item->id) . '">
                             Ubah
                         </a>
                         <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
@@ -101,6 +102,7 @@ class TestimoniController extends Controller
     public function edit($id)
     {
         $data = Testimonial::findOrFail($id);
+        return view('pages.admin.testimoni.edit', compact('data'));
     }
 
     /**
@@ -110,9 +112,18 @@ class TestimoniController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TestimoniRequest $request, $id)
     {
-        //
+        $item = Testimonial::findOrFail($id);
+        $data = $request->all();
+
+        if ($request->hasFile('avatar')) {
+            Storage::delete('public/' . $item->avatar);
+            $data['avatar'] = $request->file('avatar')->store('web/testi/avatar', 'public');
+        }
+
+        $item->update($data);
+        return redirect()->route('testimoni.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
