@@ -61,7 +61,15 @@
             </div>
         </div>
     </li>
-
+    
+    <!-- Nav Item - About Us -->
+    <li class="nav-item @yield('about')">
+        <a class="nav-link" href="{{ route('about-us.index') }}">
+            <i class="fas fa-address-card"></i>
+            <span>About Us</span>
+        </a>
+    </li>
+    
     <!-- Nav Item - Testimoni -->
     <li class="nav-item @yield('testimoni')">
         <a class="nav-link" href="{{ route('testimoni.index') }}">
