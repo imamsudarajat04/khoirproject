@@ -134,6 +134,11 @@ class TestimoniController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Testimonial::findOrFail($id);
+        Storage::delete('public/' . $data->avatar);
+
+        $result = $data->delete();
+
+        return response()->json($result);
     }
 }
