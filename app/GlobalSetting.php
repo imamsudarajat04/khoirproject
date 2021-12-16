@@ -10,6 +10,8 @@ class GlobalSetting extends Model
     
     protected $fillable = [
         'navbar_title', 
+        'primary_color',
+        'secondary_color',
         'font_size_title', 
         'font_size_subtitle', 
         'page_banner', 

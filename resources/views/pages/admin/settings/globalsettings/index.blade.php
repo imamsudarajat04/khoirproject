@@ -51,6 +51,24 @@
                         <div class="row">
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
+                                    <label class="col-12 control-label">Primary Color</label>
+                                    <div class="col-12">
+                                        <input type="color" class="form-control" name="primary_color" value="{{ old('primary_color', $data->primary_color) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Secondary Color</label>
+                                    <div class="col-12">
+                                        <input type="color" class="form-control" name="secondary_color" value="{{ old('secondary_color', $data->secondary_color) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
                                     <label class="col-12 control-label">Font Size Title</label>
                                     <div class="col-12">
                                         <input type="number" class="form-control" name="font_size_title" placeholder="Masukan Font Size Title.." value="{{ old('font_size_title', $data->font_size_title) }}">
