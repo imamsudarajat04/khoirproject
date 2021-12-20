@@ -27,13 +27,13 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('page_banner_testimonials')->nullable();
             $table->string('title_profile')->nullable();
             $table->string('subtitle_profile')->nullable();
-            $table->string('icon_profile_one')->nullable();
+            $table->string('icon_profile_one')->default('bx bx-receipt');
             $table->string('title_profile_one')->nullable();
             $table->string('subtitle_profile_one')->nullable();
-            $table->string('icon_profile_two')->nullable();
+            $table->string('icon_profile_two')->default('bx bx-cube-alt');
             $table->string('title_profile_two')->nullable();
             $table->string('subtitle_profile_two')->nullable();
-            $table->string('icon_profile_three')->nullable();
+            $table->string('icon_profile_three')->default('bx bx-images');
             $table->string('title_profile_three')->nullable();
             $table->string('subtitle_profile_three')->nullable();
             $table->string('subtitle_services')->nullable();
