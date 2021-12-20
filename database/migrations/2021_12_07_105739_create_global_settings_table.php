@@ -25,6 +25,17 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('page_banner')->nullable();
             $table->string('page_banner_about')->nullable();
             $table->string('page_banner_testimonials')->nullable();
+            $table->string('title_profile')->nullable();
+            $table->string('subtitle_profile')->nullable();
+            $table->string('icon_profile_one')->nullable();
+            $table->string('title_profile_one')->nullable();
+            $table->string('subtitle_profile_one')->nullable();
+            $table->string('icon_profile_two')->nullable();
+            $table->string('title_profile_two')->nullable();
+            $table->string('subtitle_profile_two')->nullable();
+            $table->string('icon_profile_three')->nullable();
+            $table->string('title_profile_three')->nullable();
+            $table->string('subtitle_profile_three')->nullable();
             $table->string('subtitle_services')->nullable();
             $table->string('subtitle_team')->nullable();
             $table->string('subtitle_faq')->nullable();
