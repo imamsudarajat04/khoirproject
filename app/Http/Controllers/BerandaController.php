@@ -6,6 +6,7 @@ use App\Team;
 use App\About;
 use App\Devision;
 use App\Testimonial;
+use App\ClientImage;
 use App\FooterSetting;
 use App\GlobalSetting;
 use App\HomepageSetting;
@@ -32,7 +33,20 @@ class BerandaController extends Controller
         $faqs = Faq::take(4)->get();
         $testimonis = Testimonial::take(5)->get();
         $abouts = About::first();
-        return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs', 'testimonis', 'abouts'));
+        $client_images = ClientImage::take(7)->get();
+        // return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs', 'testimonis', 'abouts', 'client_images'));
+        
+        return view('pages.users.welcome', [
+            'devisions'       => $devisions,
+            'footer_settings' => $footer_settings,
+            'header_settings' => $header_settings,
+            'global_settings' => $global_settings,
+            'teams'           => $teams,
+            'faqs'            => $faqs,
+            'testimonis'      => $testimonis,
+            'abouts'          => $abouts,
+            'client_images'   => $client_images
+        ]);
     }
 
     /**

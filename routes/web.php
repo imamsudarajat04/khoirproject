@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //About Us Setting
     Route::resource('/admin/about-us', "AboutController");
+
+    //Client Image
+    Route::resource('/admin/client-image', "ClientImageController");
     
     //Setting
     Route::prefix('settings')->group(function() {
