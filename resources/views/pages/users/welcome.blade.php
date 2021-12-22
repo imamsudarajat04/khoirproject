@@ -9,13 +9,20 @@
           <div class="row">
             <div class="col-xl-4 col-lg-5" data-aos="fade-up">
               <div class="content">
-                <h3>Why Choose Flexor for your company website?</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-                </p>
+                @if ($global_settings->title_profile == "")
+                  <h3>Tidak Ada Title Profile</h3>
+                @else
+                  <h3>{{ $global_settings->title_profile }}</h3>
+                @endif
+                @if ($global_settings->subtitle_profile == "")
+                  <p>Tidak ada subtitle</p>
+                @else    
+                  <p>
+                    {{ $global_settings->subtitle_profile }}
+                  </p>
+                @endif
                 <div class="text-center">
-                  <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                  {{-- <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -24,23 +31,47 @@
                 <div class="row">
                   <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box mt-4 mt-xl-0">
-                      <i class="bx bx-receipt"></i>
-                      <h4>Corporis voluptates sit</h4>
-                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                      <i class="{{ $global_settings->icon_profile_one }}"></i>
+                      @if ($global_settings->title_profile_one == "")
+                        <h4>Tidak Ada Title Profile Pertama</h4>
+                      @else
+                        <h4>{{ $global_settings->title_profile_one }}</h4>
+                      @endif
+                      @if ($global_settings->subtitle_profile_one == "")
+                        <p>Tidak ada subtitle</p>   
+                      @else
+                        <p>{{ $global_settings->subtitle_profile_one }}</p>
+                      @endif
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box mt-4 mt-xl-0">
-                      <i class="bx bx-cube-alt"></i>
-                      <h4>Ullamco laboris ladore pan</h4>
-                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                      <i class="{{ $global_settings->icon_profile_two }}"></i>
+                      @if ($global_settings->title_profile_two == "")
+                        <h4>Tidak Ada Title Profile Kedua</h4>
+                      @else
+                        <h4>{{ $global_settings->title_profile_two }}</h4>
+                      @endif
+                      @if ($global_settings->subtitle_profile_two == "")
+                        <p>Tidak ada subtitle</p>
+                      @else
+                        <p>{{ $global_settings->subtitle_profile_two }}</p>
+                      @endif
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box mt-4 mt-xl-0">
-                      <i class="bx bx-images"></i>
-                      <h4>Labore consequatur</h4>
-                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                      <i class="{{ $global_settings->icon_profile_three }}"></i>
+                      @if ($global_settings->title_profile_three == "")
+                        <h4>Tidak Ada Title Profile Ketiga</h4>
+                      @else
+                        <h4>{{ $global_settings->title_profile_three }}</h4>
+                      @endif
+                      @if ($global_settings->subtitle_profile_three == "")
+                        <p>Tidak ada subtitle</p>
+                      @else
+                        <p>{{ $global_settings->subtitle_profile_three }}</p>
+                      @endif
                     </div>
                   </div>
                 </div>
@@ -95,14 +126,13 @@
   
           <div class="clients-slider swiper">
             <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide"><img src="asset/img/clients/client-1.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-2.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-3.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-4.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-5.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-6.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-7.png" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/clients/client-8.png" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-1.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-exp.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-logistik.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-florist.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-herbal.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-madu.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-otomotif.jpeg" class="img-fluid" alt=""></div>
             </div>
             <div class="swiper-pagination"></div>
           </div>
