@@ -34,8 +34,7 @@ class BerandaController extends Controller
         $testimonis = Testimonial::take(5)->get();
         $abouts = About::first();
         $client_images = ClientImage::take(7)->get();
-        // return view('pages.users.welcome', compact('devisions', 'footer_settings', 'header_settings', 'global_settings', 'teams', 'faqs', 'testimonis', 'abouts', 'client_images'));
-        
+
         return view('pages.users.welcome', [
             'devisions'       => $devisions,
             'footer_settings' => $footer_settings,

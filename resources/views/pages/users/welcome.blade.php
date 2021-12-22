@@ -123,16 +123,22 @@
       <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
         <div class="container" data-aos="fade-up">
-  
+
           <div class="clients-slider swiper">
             <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-1.jpeg" class="img-fluid" alt=""></div>
+
+              @foreach ($client_images as $client_image)
+                <div class="swiper-slide"><img src="{{ Storage::exists('public/' . $client_image->image) && $client_image->image ? Storage::url($client_image->image) : asset('asset/img/khoir/khoir-project-1.jpeg') }}" class="img-fluid" alt="{{ $client_image->name }}"></div>
+              @endforeach
+
+              {{-- <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-1.jpeg" class="img-fluid" alt=""></div>
               <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-exp.jpeg" class="img-fluid" alt=""></div>
               <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-logistik.jpeg" class="img-fluid" alt=""></div>
               <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-florist.jpeg" class="img-fluid" alt=""></div>
               <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-herbal.jpeg" class="img-fluid" alt=""></div>
               <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-madu.jpeg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-otomotif.jpeg" class="img-fluid" alt=""></div>
+              <div class="swiper-slide"><img src="asset/img/khoir/khoir-project-otomotif.jpeg" class="img-fluid" alt=""></div> --}}
+
             </div>
             <div class="swiper-pagination"></div>
           </div>
