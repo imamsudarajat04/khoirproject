@@ -142,17 +142,83 @@
                         <div class="row">
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Icon Profile One</label>
+                                    <label class="col-12 control-label">Icon Profile Pertama</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="icon_profile_one" placeholder="Masukan Icon Profile One.." value="{{ old('icon_profile_one', $data->icon_profile_one) }}">
+                                        <input type="text" class="form-control" name="icon_profile_one" placeholder="Masukan Icon Profile Pertama.." value="{{ old('icon_profile_one', $data->icon_profile_one) }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="row">
-                                    <label class="col-12 control-label">Title Profile One</label>
+                                    <label class="col-12 control-label">Title Profile Pertama</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" name="title_profile_one" placeholder="Masukan Title Profile One.." value="{{ old('title_profile_one', $data->title_prfile_one) }}">
+                                        <input type="text" class="form-control" name="title_profile_one" placeholder="Masukan Title Profile Pertama.." value="{{ old('title_profile_one', $data->title_prfile_one) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Profile Pertama</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_profile_one" placeholder="Masukan Subtitle Profile Pertama.." value="{{ old('subtitle_profile_one', $data->subtitle_profile_one) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Icon Profile Kedua</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="icon_profile_two" placeholder="Masukan Icon Profile Kedua.." value="{{ old('icon_profile_two', $data->icon_profile_two) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Title Profile Kedua</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="title_profile_two" placeholder="Masukan Title Profile Kedua.." value="{{ old('title_profile_two', $data->title_prfile_two) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Profile Kedua</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_profile_two" placeholder="Masukan Subtitle Profile Kedua.." value="{{ old('subtitle_profile_two', $data->subtitle_profile_two) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Icon Profile Ketiga</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="icon_profile_three" placeholder="Masukan Icon Profile Ketiga.." value="{{ old('icon_profile_three', $data->icon_profile_three) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Title Profile Ketiga</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="title_profile_three" placeholder="Masukan Title Profile Ketiga.." value="{{ old('title_profile_three', $data->title_prfile_three) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 mb-2">
+                                <div class="row">
+                                    <label class="col-12 control-label">Subtitle Profile Ketiga</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" name="subtitle_profile_three" placeholder="Masukan Subtitle Profile Ketiga.." value="{{ old('subtitle_profile_three', $data->subtitle_profile_three) }}">
                                     </div>
                                 </div>
                             </div>
