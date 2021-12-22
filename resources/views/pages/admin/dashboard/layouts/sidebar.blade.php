@@ -85,6 +85,14 @@
             <span>Faq</span>
         </a>
     </li>
+
+    <!-- Nav Item - Faq -->
+    <li class="nav-item @yield('faq')">
+        <a class="nav-link" href="{{ route('faq.index') }}">
+            <i class="fas fa-user-tie"></i>
+            <span>Gambar Klien / Sponsor</span>
+        </a>
+    </li>
     
     <!-- Nav Item - Pengaturan -->
     <li class="nav-item">
