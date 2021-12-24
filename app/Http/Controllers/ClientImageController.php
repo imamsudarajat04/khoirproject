@@ -51,7 +51,7 @@ class ClientImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.client.create');
     }
 
     /**

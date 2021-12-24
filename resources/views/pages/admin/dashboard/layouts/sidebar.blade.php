@@ -87,7 +87,7 @@
     </li>
 
     <!-- Nav Item - Faq -->
-    <li class="nav-item @yield('faq')">
+    <li class="nav-item @yield('client')">
         <a class="nav-link" href="{{ route('client-image.index') }}">
             <i class="fas fa-user-tie"></i>
             <span>Gambar Klien / Sponsor</span>

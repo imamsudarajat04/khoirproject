@@ -1,7 +1,7 @@
 @extends('pages.admin.dashboard.layouts.master')
 
-@section('title', 'Halaman Data Devisi')
-@section('dataDevisi', 'active')
+@section('title', 'Halaman Data Klient / Sponsor')
+@section('client', 'active')
 
 @section('content')
     <!-- Page Heading -->
