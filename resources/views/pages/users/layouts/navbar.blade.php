@@ -14,7 +14,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a class="nav-link @yield('blog')" href="{{ route('blog.index') }}">Blog</a></li>
           <li class="dropdown"><a href="#"><span>Devisi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               {{-- <li><a href="#">Drop Down 1</a></li> --}}
