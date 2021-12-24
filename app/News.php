@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $table = "news";
-    protected $fillable = ['title', ];
+    protected $fillable = ['user_id', 'title', 'slug', 'description', 'content', 'publish_date', 'cover'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
