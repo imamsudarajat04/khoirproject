@@ -10,7 +10,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto @yield('index')" href="#hero">Home</a></li>
+          @if (Request::url() === 'blog')
+            <li><a class="nav-link scrollto @yield('index')" href="#hero">Home</a></li>
+          @else
+            <li><a href="/">Home</a></li>
+          @endif
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
