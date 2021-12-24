@@ -878,7 +878,7 @@
       transition: 0.3s;
     }
     .blog .entry .entry-title a:hover {
-      color: #ff5821;
+      color: {{ $global_settings->primary_color }};
     }
     .blog .entry .entry-meta {
       margin-bottom: 15px;
@@ -915,7 +915,7 @@
     }
     .blog .entry .entry-content .read-more a {
       display: inline-block;
-      background: #ff5821;
+      background: {{ $global_settings->secondary_color }};
       color: #fff;
       padding: 6px 20px;
       transition: 0.3s;
@@ -923,7 +923,7 @@
       border-radius: 4px;
     }
     .blog .entry .entry-content .read-more a:hover {
-      background: #ff6b3b;
+      background: {{ $global_settings->primary_color }};
     }
     .blog .entry .entry-content h3 {
       font-size: 22px;
@@ -1138,7 +1138,7 @@
       justify-content: center;
     }
     .blog .blog-pagination li.active, .blog .blog-pagination li:hover {
-      background: #ff5821;
+      background: {{ $global_settings->primary_color }};
     }
     .blog .blog-pagination li.active a, .blog .blog-pagination li:hover a {
       color: #fff;
@@ -1181,7 +1181,7 @@
       font-size: 16px;
       padding: 0 15px;
       margin: -1px;
-      background: #ff5821;
+      background: {{ $global_settings->secondary_color }};
       color: #fff;
       transition: 0.3s;
       border-radius: 0 4px 4px 0;
@@ -1191,7 +1191,7 @@
       line-height: 0;
     }
     .blog .sidebar .search-form form button:hover {
-      background: #ff6735;
+      background: {{ $global_settings->primary_color }};
     }
     .blog .sidebar .categories ul {
       list-style: none;

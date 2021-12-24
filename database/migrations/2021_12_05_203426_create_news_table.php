@@ -23,6 +23,8 @@ class CreateNewsTable extends Migration
             $table->string('content');
             $table->string('publish_date');
             $table->string('cover')->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
