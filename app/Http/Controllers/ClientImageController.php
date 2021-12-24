@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ClientImage;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClientRequest;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -60,9 +61,13 @@ class ClientImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['image'] = $request->file('image')->store('web/sponsor', 'public');
+
+        ClientImage::create($data);
+        return redirect()->route('client-image.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
