@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class ClientImageController extends Controller
 {
@@ -11,9 +14,34 @@ class ClientImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if (request()->ajax()) {
+            $query = ClientImage::all();
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('client-image.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->editColumn('image', function ($item) {
+                    $image = Storage::exists('public/' . $item->image) && $item->image ? Storage::url($item->image) : asset('asset/img/team/team-1.jpg');
+                    return '
+                        <div class="image-wrapper">
+                            <div class="image" style="background-image: url(' . $image . ')"></div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action', 'image'])
+                ->addIndexColumn()
+                ->make();
+        }
+        return view('pages.admin.client.index');
     }
 
     /**
