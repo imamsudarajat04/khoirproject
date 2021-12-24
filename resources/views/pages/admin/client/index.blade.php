@@ -137,7 +137,7 @@
             });
             $.ajax({
                 type: "DELETE",
-                url: 'data-client/' + client_id,
+                url: 'client-image/' + client_id,
                 success: function(data) {
                     $('#exampleModal').modal('hide');
                     $("#client" + client_id).remove();

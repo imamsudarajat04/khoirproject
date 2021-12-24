@@ -89,7 +89,9 @@ class ClientImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ClientImage::findOrFail($id);
+
+        return view('pages.admin.client.edit', compact('data'));
     }
 
     /**
@@ -99,9 +101,18 @@ class ClientImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, $id)
     {
-        //
+        $item = ClientImage::findOrFail($id);
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            Storage::delete('public/' . $item->image);
+            $data['image'] = $request->file('image')->store('web/sponsor', 'public');
+        }
+
+        $item->update($data);
+        return redirect()->route('client-image.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -112,6 +123,11 @@ class ClientImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ClientImage::findOrFail($id);
+        Storage::delete('public/' . $data->image);
+
+        $result = $data->delete();
+
+        return response()->json($result);
     }
 }
