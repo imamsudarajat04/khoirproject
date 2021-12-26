@@ -4,6 +4,7 @@ use App\News;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Auth;
 
 class NewsSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class NewsSeeder extends Seeder
             $title = 'Timeline Kegiatan ' . ($i + 1);
 
             $data = [
+                'user_id'      => 1,
                 'title'        => $title,
                 'slug'         => Str::slug($title),
                 'description'  => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sapiente praesentium ab nisi repudiandae harum earum deleniti corporis fugit maxime voluptates excepturi dignissimos facilis ut aperiam magni, ea fuga labore.',
