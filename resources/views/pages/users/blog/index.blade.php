@@ -16,7 +16,7 @@
                 <article class="entry">
     
                   <div class="entry-img">
-                    <img src="{{ Storage::exists('public/' . $blog->cover) && $blog->cover ? Storage::url($blog->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="" class="img-fluid">
+                    <img src="{{ Storage::exists('public/' . $blog->cover) && $blog->cover ? Storage::url($blog->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="{{ $blog->title }}" class="img-fluid">
                   </div>
     
                   <h2 class="entry-title">
@@ -27,7 +27,7 @@
                     <ul>
                       <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $blog->user->name }}</a></li>
                       <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{ $blog->publish_date }}">{{ Carbon\Carbon::parse($blog->publish_date)->isoFormat('MMM Do, YYYY') }}</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
+                      {{-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li> --}}
                     </ul>
                   </div>
     
@@ -77,7 +77,7 @@
                 <div class="sidebar-item recent-posts">
                   @foreach ($recent_posts as $recent_post)
                     <div class="post-item clearfix">
-                      <img src="{{ asset('asset/img/blog/blog-recent-1.jpg') }}" alt="">
+                      <img src="{{ Storage::exists('public/' . $blog->cover) && $blog->cover ? Storage::url($blog->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="">
                       <h4><a href="#">{{ $recent_post->title }}</a></h4>
                       <time datetime="{{ $recent_post->publish_date }}">{{ Carbon\Carbon::parse($recent_post->publish_date)->isoFormat('MMM Do, YYYY') }}</time>
                     </div>
