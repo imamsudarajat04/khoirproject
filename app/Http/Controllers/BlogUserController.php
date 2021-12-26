@@ -23,15 +23,17 @@ class BlogUserController extends Controller
         $global_settings = GlobalSetting::first();
         $footer_settings = FooterSetting::first();
         $header_settings = HomepageSetting::first();
-        $blogs = News::take(3)->paginate(2);
+        $blogs = News::take(3)->paginate(3);
         $categories = Category::all();
+        $recent_posts = News::orderBy('id', 'asc')->take(5)->get();
         return view('pages.users.blog.index', [
             'header_settings' => $header_settings,
             'global_settings' => $global_settings,
             'devisions'       => $devisions,
             'footer_settings' => $footer_settings,
             'blogs'           => $blogs,
-            'categories'      => $categories
+            'categories'      => $categories,
+            'recent_posts'    => $recent_posts
         ]);
     }
 
