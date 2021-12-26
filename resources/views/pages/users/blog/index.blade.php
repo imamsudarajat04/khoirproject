@@ -11,37 +11,38 @@
           <div class="row">
   
             <div class="col-lg-8 entries">
-  
-              <article class="entry">
-  
-                <div class="entry-img">
-                  <img src="{{ asset('asset/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
-                </div>
-  
-                <h2 class="entry-title">
-                  <a href="#">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
-                </h2>
-  
-                <div class="entry-meta">
-                  <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">John Doe</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
-                  </ul>
-                </div>
-  
-                <div class="entry-content">
-                  <p>
-                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                  </p>
-                  <div class="read-more">
-                    <a href="#">Read More</a>
+              
+              @foreach ($blogs as $blog)
+                <article class="entry">
+    
+                  <div class="entry-img">
+                    <img src="{{ Storage::exists('public/' . $blog->cover) && $blog->cover ? Storage::url($blog->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="" class="img-fluid">
                   </div>
-                </div>
-  
-              </article><!-- End blog entry -->
-  
+    
+                  <h2 class="entry-title">
+                    <a href="#">{{ $blog->title }}</a>
+                  </h2>
+    
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $blog->user->name }}</a></li>
+                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{ $blog->publish_date }}">{{ Carbon\Carbon::parse($blog->publish_date)->format('m-d-Y') }}</time></a></li>
+                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
+                    </ul>
+                  </div>
+    
+                  <div class="entry-content">
+                    <p>
+                      {{ $blog->description }}
+                    </p>
+                    <div class="read-more">
+                      <a href="#">Read More</a>
+                    </div>
+                  </div>
+    
+                </article><!-- End blog entry -->
+              @endforeach
+
               <div class="blog-pagination">
                 <ul class="justify-content-center">
                   <li class="active"><a href="#">1</a></li>
