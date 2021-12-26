@@ -6,7 +6,7 @@
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Kelola Blog</h1>
+        <h1 class="h3 mb-0 text-gray-800">Kelola Dokumentasi</h1>
         <a href="{{ route('data-blog.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i>
             Tambah
@@ -150,8 +150,8 @@
 
         jQuery(document).ready(function($) {
             ////----- DELETE a link and remove from the page -----////
-            jQuery('.delete-jadwal').click(function() {
-                var jadwal_id = $(this).val();
+            jQuery('.delete-blog').click(function() {
+                var blog_id = $(this).val();
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -159,12 +159,12 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url: 'timeline/' + jadwal_id,
+                    url: 'data-blog/' + blog_id,
                     success: function(data) {
                         $('#exampleModal').modal('hide');
-                        $("#jadwal" + jadwal_id).remove();
+                        $("#blog" + blog_id).remove();
                         $(".delete-response").append(
-                            '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Jadwal Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
+                            '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Dokumentasi Berhasil Di Hapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"> &times; </span></button></div>'
                         )
                     }
                 });

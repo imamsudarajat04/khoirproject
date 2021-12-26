@@ -31,6 +31,7 @@
                 <div class="card-body">
                     <form action="{{ route('data-blog.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth()->user()->id }}">
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-12 control-label">Judul</label>

@@ -49,7 +49,7 @@
     <li class="nav-item @yield('blog')">
         <a class="nav-link" href="{{ route('data-blog.index') }}">
             <i class="far fa-newspaper"></i>
-            <span>Blog</span>
+            <span>Dokumentasi Kegiatan</span>
         </a>
     </li>
 

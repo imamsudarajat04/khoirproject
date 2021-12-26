@@ -26,13 +26,13 @@ class NewsRequest extends FormRequest
     {
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
             $rules = [
-                'user_id'             => 'required|integer|exists:users,id',
+                'user_id'             => 'integer|exists:users,id',
                 'title'               => 'required|string',
                 'description'         => 'nullable',
                 'content'             => 'nullable',
                 'publish_date'        => 'required|date',
                 'cover'               => 'file|mimes:png,jpg,jpeg,svg,ico',
-                'category_id'         => 'required|integer|exists:categories,id',
+                'category_id'         => 'integer|exists:categories,id',
             ];
         } else {
             $rules = [
