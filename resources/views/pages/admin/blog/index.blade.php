@@ -41,7 +41,6 @@
                                     <th>Penulis</th>
                                     <th>Judul</th>
                                     <th>Deskripsi</th>
-                                    <th>Konten</th>
                                     <th>Waktu Publikasi</th>
                                     <th width="200px">Foto Cover</th>
                                     <th>Kategori</th>
@@ -86,7 +85,7 @@
     </div>
 @endsection
 
-@push('addon-script')
+@push('customjs')
     <script>
         var datatable = $('#tableBlog').DataTable({
             processing: true,
@@ -116,10 +115,18 @@
                     name: 'description',
                 },
                 {
+                    data: 'publish_date',
+                    name: 'publish_date',
+                },
+                {
                     data: 'cover',
                     name: 'cover',
                     orderable: false,
                     searchable: false,
+                },
+                {
+                    name: 'category_name',
+                    data: 'category_name',
                 },
                 {
                     data: 'action',
@@ -132,13 +139,13 @@
             sDom: '<"secondBar d-flex flex-wrap justify-content-between mb-2"lf>rt<"bottom"p>',
 
             "fnCreatedRow": function(nRow, data) {
-                $(nRow).attr('id', 'jadwal' + data.id);
+                $(nRow).attr('id', 'blog' + data.id);
             },
         });
 
         $(document).on("click", ".delete_modal", function() {
             var id = $(this).data('id');
-            $(".modal-footer .delete-jadwal").val(id);
+            $(".modal-footer .delete-blog").val(id);
         });
 
         jQuery(document).ready(function($) {

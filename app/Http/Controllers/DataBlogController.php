@@ -34,6 +34,18 @@ class DataBlogController extends Controller
                         </button>
                     ';
                 })
+                ->editColumn('description', function($item) {
+                    if($item->description == "")
+                    {
+                        return 'Tidak ada deskripsi';
+                    }
+                    else
+                    {
+                        return '
+                            <p class="line-clamp">' . $item->description . '</p>
+                        ';
+                    }
+                })
                 ->editColumn('cover', function ($item) {
                     $image = Storage::exists('public/' . $item->cover) && $item->cover ? Storage::url($item->cover) : asset('asset/img/imagePlaceholder.png');
                     return '
@@ -42,7 +54,7 @@ class DataBlogController extends Controller
                         </div>
                     ';
                 })
-                ->rawColumns(['action', 'cover'])
+                ->rawColumns(['action', 'cover', 'description'])
                 ->addIndexColumn()
                 ->make();
         }
