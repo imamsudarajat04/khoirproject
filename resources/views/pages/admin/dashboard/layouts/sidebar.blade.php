@@ -45,6 +45,14 @@
         </a>
     </li> --}}
 
+    <!-- Nav Item - Data Akun -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="far fa-newspaper"></i>
+            <span>Blog</span>
+        </a>
+    </li>
+
     
     <!-- Nav Item - Data -->
     <li class="nav-item">
