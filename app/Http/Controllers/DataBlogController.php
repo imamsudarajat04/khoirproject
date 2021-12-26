@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use App\User;
 use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewsRequest;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +82,13 @@ class DataBlogController extends Controller
      */
     public function store(NewsRequest $request)
     {
-        dd($request->all());
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['title']);
+        $data['cover'] = $request->file('cover')->store('web/dokumentasi', 'public');
+
+        News::create($data);
+
+        return redirect()->route('dokumentasi.index')->with('success', 'Data Dokumentasi Berhasil Di Simpan');
     }
 
     /**
