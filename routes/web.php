@@ -21,6 +21,9 @@ Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@store')->name('login.store');
 Route::get('/logout', 'LoginController@logout')->name('login.logout');
 
+//Blog Khusus User
+Route::resource('/blog', "BlogUserController");
+
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
     Route::resource('/beranda', 'DashboardController');
@@ -45,9 +48,6 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //Client Image
     Route::resource('/admin/client-image', "ClientImageController");
-
-    //Blog Khusus User
-    Route::resource('/blog', "BlogUserController");
     
     //Setting
     Route::prefix('settings')->group(function() {
