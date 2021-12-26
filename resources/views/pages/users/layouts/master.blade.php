@@ -1138,7 +1138,7 @@
       justify-content: center;
     }
     .blog .blog-pagination li.active, .blog .blog-pagination li:hover {
-      background: {{ $global_settings->primary_color }};
+      /* background: {{ $global_settings->primary_color }}; */
     }
     .blog .blog-pagination li.active a, .blog .blog-pagination li:hover a {
       color: #fff;

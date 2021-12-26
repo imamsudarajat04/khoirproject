@@ -23,7 +23,7 @@ class BlogUserController extends Controller
         $global_settings = GlobalSetting::first();
         $footer_settings = FooterSetting::first();
         $header_settings = HomepageSetting::first();
-        $blogs = News::take(3)->get();
+        $blogs = News::take(3)->paginate(2);
         $categories = Category::all();
         return view('pages.users.blog.index', [
             'header_settings' => $header_settings,
