@@ -110,7 +110,9 @@ class DataBlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = News::findOrFail($id);
+        $categories = Category::all();
+        return view('pages.admin.blog.edit', compact('data', 'categories'));
     }
 
     /**
@@ -120,9 +122,22 @@ class DataBlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = News::findOrFail($id);
+
+        $data['slug'] = Str::slug($data['title']);
+
+        if ($request->hasFile('cover')) {
+            Storage::delete('public/' . $item->cover);
+
+            $data['cover'] = $request->file('cover')->store('web/dokumentasi', 'public');
+        }
+
+        $item->update($data);
+
+        return redirect()->route('data-blog.index')->with('success', 'Data Dokumentasi Berhasil Di Ubah');
     }
 
     /**
