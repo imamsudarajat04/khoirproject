@@ -7,6 +7,7 @@ use App\User;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewsRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -68,7 +69,8 @@ class DataBlogController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('pages.admin.blog.create', compact('categories'));
     }
 
     /**
