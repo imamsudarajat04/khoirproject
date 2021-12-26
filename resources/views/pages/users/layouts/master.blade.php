@@ -1205,7 +1205,7 @@
       transition: 0.3s;
     }
     .blog .sidebar .categories ul a:hover {
-      color: #ff5821;
+      color: {{ $global_settings->primary_color }};
     }
     .blog .sidebar .categories ul a span {
       padding-left: 5px;

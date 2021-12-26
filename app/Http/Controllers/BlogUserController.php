@@ -102,4 +102,27 @@ class BlogUserController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $blogs  = News::query()->where('title', 'LIKE', '%'.$search.'%')->paginate(3);
+
+        $devisions = Devision::all();
+        $global_settings = GlobalSetting::first();
+        $footer_settings = FooterSetting::first();
+        $header_settings = HomepageSetting::first();
+        $categories = Category::all();
+        $recent_posts = News::orderBy('id', 'asc')->take(5)->get();
+        return view('pages.users.blog.index', [
+            'header_settings' => $header_settings,
+            'global_settings' => $global_settings,
+            'devisions'       => $devisions,
+            'footer_settings' => $footer_settings,
+            'categories'      => $categories,
+            'recent_posts'    => $recent_posts,
+            'blogs'           => $blogs
+        ]);
+    }
 }

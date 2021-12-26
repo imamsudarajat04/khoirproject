@@ -23,6 +23,7 @@ Route::get('/logout', 'LoginController@logout')->name('login.logout');
 
 //Blog Khusus User
 Route::resource('/blog', "BlogUserController");
+Route::get('/search/', "BlogUserController@search")->name('blog.search');
 
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
