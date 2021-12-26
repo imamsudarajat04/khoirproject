@@ -46,8 +46,8 @@
     </li> --}}
 
     <!-- Nav Item - Data Akun -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item @yield('blog')">
+        <a class="nav-link" href="{{ route('data-blog.index') }}">
             <i class="far fa-newspaper"></i>
             <span>Blog</span>
         </a>

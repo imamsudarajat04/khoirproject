@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
+use App\User;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\NewsRequest;
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class DataBlogController extends Controller
 {
@@ -11,9 +17,36 @@ class DataBlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if (request()->ajax()) {
+            $query = News::join('users', 'users.id', '=', 'news.user_id')
+                    ->join('categories', 'categories.id', '=', 'news.category_id')
+                    ->select('news.*', 'users.name as user_name', 'categories.name as category_name');
+            return Datatables::of($query)
+                ->addColumn('action', function ($item) {
+                    return '
+                        <a class="btn btn-primary" href="' . route('data-blog.edit', $item->id) . '">
+                            Ubah
+                        </a>
+                        <button class="btn btn-danger delete_modal" type="button" data-id="' . $item->id . '" data-toggle="modal" data-target="#exampleModal">
+                            Hapus
+                        </button>
+                    ';
+                })
+                ->editColumn('cover', function ($item) {
+                    $image = Storage::exists('public/' . $item->cover) && $item->cover ? Storage::url($item->cover) : asset('asset/img/imagePlaceholder.png');
+                    return '
+                        <div class="image-wrapper">
+                            <div class="image" style="background-image: url(' . $image . ')"></div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action', 'cover'])
+                ->addIndexColumn()
+                ->make();
+        }
+        return view('pages.admin.blog.index');
     }
 
     /**
