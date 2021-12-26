@@ -88,7 +88,7 @@ class DataBlogController extends Controller
 
         News::create($data);
 
-        return redirect()->route('dokumentasi.index')->with('success', 'Data Dokumentasi Berhasil Di Simpan');
+        return redirect()->route('data-blog.index')->with('success', 'Data Dokumentasi Berhasil Di Simpan');
     }
 
     /**
