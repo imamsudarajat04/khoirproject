@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Blog;
+use App\News;
+use App\Category;
 use App\Devision;
 use App\GlobalSetting;
 use App\FooterSetting;
 use App\HomepageSetting;
-use App\News;
 use Illuminate\Http\Request;
 
 class BlogUserController extends Controller
@@ -24,12 +24,14 @@ class BlogUserController extends Controller
         $footer_settings = FooterSetting::first();
         $header_settings = HomepageSetting::first();
         $blogs = News::take(3)->get();
+        $categories = Category::all();
         return view('pages.users.blog.index', [
             'header_settings' => $header_settings,
             'global_settings' => $global_settings,
             'devisions'       => $devisions,
             'footer_settings' => $footer_settings,
-            'blogs'           => $blogs
+            'blogs'           => $blogs,
+            'categories'      => $categories
         ]);
     }
 

@@ -26,7 +26,7 @@
                   <div class="entry-meta">
                     <ul>
                       <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $blog->user->name }}</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{ $blog->publish_date }}">{{ Carbon\Carbon::parse($blog->publish_date)->format('m-d-Y') }}</time></a></li>
+                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{ $blog->publish_date }}">{{ Carbon\Carbon::parse($blog->publish_date)->isoFormat('MMM Do YYYY') }}</time></a></li>
                       <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
                     </ul>
                   </div>
@@ -59,21 +59,19 @@
   
                 <h3 class="sidebar-title">Search</h3>
                 <div class="sidebar-item search-form">
-                  <form action="">
-                    <input type="text">
+                  <form action="" method="POST">
+                    <input type="text" name="search">
                     <button type="submit"><i class="bi bi-search"></i></button>
                   </form>
                 </div><!-- End sidebar search formn-->
   
-                <h3 class="sidebar-title">Categories</h3>
+                <h3 class="sidebar-title">Kategori</h3>
                 <div class="sidebar-item categories">
                   <ul>
-                    <li><a href="#">General <span>(25)</span></a></li>
-                    <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                    <li><a href="#">Travel <span>(5)</span></a></li>
-                    <li><a href="#">Design <span>(22)</span></a></li>
-                    <li><a href="#">Creative <span>(8)</span></a></li>
-                    <li><a href="#">Educaion <span>(14)</span></a></li>
+                    <li><a href="{{ route('blog.index') }}">Semua</a></li>
+                    @foreach ($categories as $category)
+                      <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                    @endforeach
                   </ul>
                 </div><!-- End sidebar categories-->
   
@@ -110,23 +108,6 @@
                   </div>
   
                 </div><!-- End sidebar recent posts-->
-  
-                <h3 class="sidebar-title">Tags</h3>
-                <div class="sidebar-item tags">
-                  <ul>
-                    <li><a href="#">App</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">Business</a></li>
-                    <li><a href="#">Mac</a></li>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Office</a></li>
-                    <li><a href="#">Creative</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Smart</a></li>
-                    <li><a href="#">Tips</a></li>
-                    <li><a href="#">Marketing</a></li>
-                  </ul>
-                </div><!-- End sidebar tags-->
   
               </div><!-- End sidebar -->
   
