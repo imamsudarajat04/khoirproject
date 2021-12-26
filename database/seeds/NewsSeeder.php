@@ -16,7 +16,7 @@ class NewsSeeder extends Seeder
     public function run()
     {
         $data = [];
-        for($i = 0; $i < 3; $i++)
+        for($i = 0; $i < 6; $i++)
         {
             $title = 'Timeline Kegiatan ' . ($i + 1);
 

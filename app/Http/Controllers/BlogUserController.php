@@ -25,7 +25,7 @@ class BlogUserController extends Controller
         $header_settings = HomepageSetting::first();
         $blogs = News::take(3)->paginate(3);
         $categories = Category::all();
-        $recent_posts = News::orderBy('id', 'asc')->take(5)->get();
+        $recent_posts = News::orderBy('id', 'desc')->take(5)->get();
         return view('pages.users.blog.index', [
             'header_settings' => $header_settings,
             'global_settings' => $global_settings,
@@ -114,7 +114,7 @@ class BlogUserController extends Controller
         $footer_settings = FooterSetting::first();
         $header_settings = HomepageSetting::first();
         $categories = Category::all();
-        $recent_posts = News::orderBy('id', 'asc')->take(5)->get();
+        $recent_posts = News::orderBy('id', 'desc')->take(5)->get();
         return view('pages.users.blog.index', [
             'header_settings' => $header_settings,
             'global_settings' => $global_settings,
