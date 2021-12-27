@@ -6,7 +6,7 @@
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Show Detail</h1>
+        <h1 class="h3 mb-0 text-gray-800">Detail {{ $data->name }}</h1>
         <div class="pull-right">
             <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="{{ route('data-devisi.index') }}"><i class="fas fa-caret-left"></i> Kembali</a>
         </div>
