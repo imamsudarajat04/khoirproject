@@ -6,6 +6,7 @@ use App\Devision;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\DevisionRequest;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class DataDevisionController extends Controller
@@ -46,7 +47,15 @@ class DataDevisionController extends Controller
                         ';
                     }
                 })
-                ->rawColumns(['action', 'description'])
+                ->editColumn('logo', function ($item) {
+                    $image = Storage::exists('public/' . $item->logo) && $item->logo ? Storage::url($item->logo) : asset('asset/img/imagePlaceholder.png');
+                    return '
+                        <div class="image-wrapper">
+                            <div class="image" style="background-image: url(' . $image . ')"></div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action', 'description', 'logo'])
                 ->addIndexColumn()
                 ->make();
         }

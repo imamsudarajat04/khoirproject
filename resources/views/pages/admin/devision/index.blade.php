@@ -40,6 +40,7 @@
                                     <th width="70px">No</th>
                                     <th>Nama Devisi</th>
                                     <th>Deksripsi Devisi</th>
+                                    <th>Logo</th>
                                     <th width="150px">Action</th>
                                 </tr>
                             </thead>
@@ -105,6 +106,12 @@
             {
                 data: 'description',
                 name: 'description',
+            },
+            {
+                data: 'logo',
+                name: 'logo',
+                orderable: false,
+                searchable: false,
             },
             {
                 data: 'action',
