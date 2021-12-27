@@ -148,6 +148,11 @@ class DataBlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = News::findOrFail($id);
+        Storage::delete('public/' . $data->cover);
+
+        $result = $data->delete();
+
+        return response()->json($result);
     }
 }
