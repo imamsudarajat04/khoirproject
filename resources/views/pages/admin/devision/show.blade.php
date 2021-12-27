@@ -23,6 +23,14 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-12">
+                            <div class="banner-image-wrapper">
+                                <div class="image" style="background-image: url({{ Storage::exists('public/' . $data->logo) && $data->logo ? Storage::url($data->logo) : asset('asset/img/imagePlaceholder.png') }})"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-12 col-sm-12 col-xl-12">
                             <p class="text-left">{{ $data->description }}</p>
                         </div>
