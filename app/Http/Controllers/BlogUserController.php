@@ -64,9 +64,20 @@ class BlogUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $news = News::where('slug', $slug)->first();
+        $header_settings = HomepageSetting::first();
+        $global_settings = GlobalSetting::first();
+        $footer_settings = FooterSetting::first();
+        $devisions = Devision::all();
+        return view('pages.users.blog.show', [
+            'header_settings' => $header_settings,
+            'global_settings' => $global_settings,
+            'footer_settings' => $footer_settings,
+            'devisions'       => $devisions,
+            'news'            => $news
+        ]);
     }
 
     /**
