@@ -77,7 +77,7 @@
                 <div class="sidebar-item recent-posts">
                   @foreach ($recent_posts as $recent_post)
                     <div class="post-item clearfix">
-                      <img src="{{ Storage::exists('public/' . $blog->cover) && $blog->cover ? Storage::url($blog->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="">
+                      <img src="{{ Storage::exists('public/' . $recent_post->cover) && $recent_post->cover ? Storage::url($recent_post->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="">
                       <h4><a href="#">{{ $recent_post->title }}</a></h4>
                       <time datetime="{{ $recent_post->publish_date }}">{{ Carbon\Carbon::parse($recent_post->publish_date)->isoFormat('MMM Do, YYYY') }}</time>
                     </div>

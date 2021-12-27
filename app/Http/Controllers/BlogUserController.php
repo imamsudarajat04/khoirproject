@@ -71,10 +71,15 @@ class BlogUserController extends Controller
         $global_settings = GlobalSetting::first();
         $footer_settings = FooterSetting::first();
         $devisions = Devision::all();
+        $categories = Category::all();
+        $recent_posts = News::orderBy('id', 'desc')->take(5)->get();
+
         return view('pages.users.blog.show', [
             'header_settings' => $header_settings,
             'global_settings' => $global_settings,
             'footer_settings' => $footer_settings,
+            'recent_posts'    => $recent_posts,
+            'categories'      => $categories,
             'devisions'       => $devisions,
             'news'            => $news
         ]);

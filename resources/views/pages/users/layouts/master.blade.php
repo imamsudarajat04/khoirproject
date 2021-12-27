@@ -906,7 +906,7 @@
       display: inline-block;
       line-height: 1;
     }
-    .blog .entry .entry-content p {
+    .blog .entry .entry-content p{
       line-height: 24px;
     }
     .blog .entry .entry-content .read-more {
@@ -930,6 +930,15 @@
       margin-top: 30px;
       font-weight: bold;
     }
+
+    .blog .entry .entry-content img {
+      width: 100%;
+      padding-top: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
     .blog .entry .entry-content blockquote {
       overflow: hidden;
       background-color: #fafafa;
