@@ -104,7 +104,7 @@
                 },
                 {
                     data: 'user_name',
-                    name: 'user_name',
+                    name: 'user_id',
                 },
                 {
                     data: 'title',
@@ -125,8 +125,8 @@
                     searchable: false,
                 },
                 {
-                    name: 'category_name',
                     data: 'category_name',
+                    name: 'category_id',
                 },
                 {
                     data: 'action',
