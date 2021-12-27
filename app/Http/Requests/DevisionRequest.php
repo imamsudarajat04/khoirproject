@@ -27,12 +27,14 @@ class DevisionRequest extends FormRequest
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
             $rules = [
                 'name'            => 'required|string',
-                'description'     => 'nullable'
+                'description'     => 'nullable',
+                'logo'            => 'file|mimes:png,jpg,jpeg,svg,ico',
             ];
         } else {
             $rules = [
                 'name'            => 'required|string',
-                'description'     => 'nullable'
+                'description'     => 'nullable',
+                'logo'            => 'required|file|mimes:png,jpg,jpeg,svg,ico',
             ];
         }
 

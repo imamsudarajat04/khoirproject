@@ -82,6 +82,7 @@ class DataDevisionController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
+        $data['logo'] = $request->file('logo')->store('web/devisi', 'public');
 
         Devision::create($data);
         return redirect()->route('data-devisi.index')->with('success', 'Data berhasil ditambahkan');
