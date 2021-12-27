@@ -121,9 +121,18 @@ class DataDevisionController extends Controller
      */
     public function update(DevisionRequest $request, $id)
     {
+
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
         $item = Devision::findOrFail($id);
+
+        $data['slug'] = Str::slug($data['name']);
+
+        if ($request->hasFile('logo')) {
+            Storage::delete('public/' . $item->logo);
+
+            $data['logo'] = $request->file('logo')->store('web/devisi', 'public');
+        }
+
         $item->update($data);
 
         return redirect()->route('data-devisi.index')->with('success', 'Data berhasil diubah');

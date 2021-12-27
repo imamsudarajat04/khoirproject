@@ -29,7 +29,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Body -->
                 <div class="card-body">
-                    <form action="{{ route('data-devisi.update', $data->id) }}" method="POST">
+                    <form action="{{ route('data-devisi.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -48,6 +48,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class=" form-group">
+                            <div class="row">
+                                <label class="col-12 control-label">Logo</label>
+                                <div class="col-12">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="logo" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Pilih Foto Logo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <div class="row">
                                 <div class="col-12">
@@ -61,3 +72,16 @@
         </div>
     </div>
 @endsection
+
+@push('customjs')
+    <script>
+        $('#customFile').on('change', function() {
+            //get the file name
+            var fileName = $(this).val();
+            //clean fake path
+            var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(cleanFileName);
+        });
+    </script>
+@endpush
