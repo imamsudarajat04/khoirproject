@@ -932,11 +932,8 @@
     }
 
     .blog .entry .entry-content img {
-      width: 100%;
-      padding-top: 100%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      max-width: 100%;
+      height: auto;
     }
 
     .blog .entry .entry-content blockquote {

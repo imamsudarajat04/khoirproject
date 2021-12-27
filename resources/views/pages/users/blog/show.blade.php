@@ -39,7 +39,7 @@
                     <ul>
                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $news->user->name }}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="{{ $news->publish_date }}">{{ Carbon\Carbon::parse($news->publish_date)->isoFormat('MMM Do, YYYY') }}</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
+                    {{-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li> --}}
                     </ul>
                 </div>
 
@@ -49,7 +49,7 @@
 
                 </article><!-- End blog entry -->
 
-                <div class="blog-author d-flex align-items-center">
+                {{-- <div class="blog-author d-flex align-items-center">
                 <img src="{{ Storage::exists('public/' . $news->cover) && $news->cover ? Storage::url($news->cover) : asset('asset/img/blog/blog-author.jpg') }}" class="rounded-circle float-left" alt="{{ $news->title }}">
                 <div>
                     <h4>Jane Smith</h4>
@@ -62,9 +62,9 @@
                     Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
                     </p>
                 </div>
-                </div><!-- End blog author bio -->
+                </div><!-- End blog author bio --> --}}
 
-                <div class="blog-comments">
+                {{-- <div class="blog-comments">
 
                 <h4 class="comments-count">8 Comments</h4>
 
@@ -80,9 +80,9 @@
                         </p>
                     </div>
                     </div>
-                </div><!-- End comment #1 -->
+                </div><!-- End comment #1 --> --}}
 
-                <div class="reply-form">
+                {{-- <div class="reply-form">
                     <h4>Leave a Reply</h4>
                     <p>Your email address will not be published. Required fields are marked * </p>
                     <form action="">
@@ -108,9 +108,9 @@
 
                     </form>
 
-                </div>
+                </div> --}}
 
-                </div><!-- End blog comments -->
+                {{-- </div><!-- End blog comments --> --}}
 
             </div><!-- End blog entries list -->
 
@@ -141,7 +141,7 @@
                     @foreach ($recent_posts as $recent_post)
                         <div class="post-item clearfix">
                             <img src="{{ Storage::exists('public/' . $recent_post->cover) && $recent_post->cover ? Storage::url($recent_post->cover) : asset('asset/img/imagePlaceholder.png') }}" alt="">
-                            <h4><a href="#">{{ $recent_post->title }}</a></h4>
+                            <h4><a href="{{ route('blog.show', $recent_post->slug) }}">{{ $recent_post->title }}</a></h4>
                             <time datetime="{{ $recent_post->publish_date }}">{{ Carbon\Carbon::parse($recent_post->publish_date)->isoFormat('MMM Do, YYYY') }}</time>
                         </div>
                     @endforeach

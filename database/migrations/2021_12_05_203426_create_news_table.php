@@ -20,7 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('description')->nullable();
-            $table->string('content')->nullable();
+            $table->longText('content')->nullable();
             $table->string('publish_date');
             $table->string('cover')->nullable();
             $table->unsignedBigInteger('category_id');
