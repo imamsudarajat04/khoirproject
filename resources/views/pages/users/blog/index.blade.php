@@ -11,7 +11,9 @@
           <div class="row">
   
             <div class="col-lg-8 entries">
-              
+              @if ($blogs->count() == 0)
+                <p style="text-align: center">Categories is empty</p>
+              @endif
               @foreach ($blogs as $blog)
                 <article class="entry">
     
