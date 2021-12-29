@@ -14,6 +14,9 @@ Route::get('/logout', 'LoginController@logout')->name('login.logout');
 Route::resource('/blog', "BlogUserController");
 Route::get('/search/', "BlogUserController@search")->name('blog.search');
 
+//Kategori Blog
+Route::resource('/kategori', "CategoryUserController");
+
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
     Route::resource('/beranda', 'DashboardController');

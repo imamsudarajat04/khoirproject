@@ -68,7 +68,7 @@
                   <ul>
                     <li><a href="{{ route('blog.index') }}">Semua</a></li>
                     @foreach ($categories as $category)
-                      <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                      <li><a href="{{ route('kategori.show', $category->id) }}">{{ $category->name }}</a></li>
                     @endforeach
                   </ul>
                 </div><!-- End sidebar categories-->
