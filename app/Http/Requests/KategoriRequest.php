@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class KategoriRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class KategoriRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -23,8 +24,16 @@ class KategoriRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            $rules = [
+                'name' => 'required|string',
+            ];
+        } else {
+            $rules = [
+                'name' => 'required|string',
+            ];
+        }
+
+        return $rules;
     }
 }
