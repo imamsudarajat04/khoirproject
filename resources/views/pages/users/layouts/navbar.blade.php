@@ -21,9 +21,8 @@
           <li><a class="nav-link @yield('blog')" href="{{ route('blog.index') }}">Blog</a></li>
           <li class="dropdown"><a href="#"><span>Devisi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              {{-- <li><a href="#">Drop Down 1</a></li> --}}
               @foreach ($devisions as $devision)
-                  <li><a href="{{ $devision->slug }}">{{ $devision->name }}</a></li>
+                  <li><a href="{{ route('devisi.show', $devision->slug) }}">{{ $devision->name }}</a></li>
               @endforeach
             </ul>
           </li>

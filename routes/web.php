@@ -13,9 +13,10 @@ Route::get('/logout', 'LoginController@logout')->name('login.logout');
 //Blog Khusus User
 Route::resource('/blog', "BlogUserController");
 Route::get('/search/', "BlogUserController@search")->name('blog.search');
-
-//Kategori Blog
 Route::resource('/kategori', "CategoryUserController");
+
+//Devisi Khusus User
+Route::resource('/devisi', "DevisiUserController");
 
 Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() {
     //Admin
