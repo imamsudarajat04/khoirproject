@@ -45,6 +45,9 @@ Route::group(['middleware' => ['auth','CekRole:admin,writer,user']], function() 
 
     //Blog
     Route::resource('/admin/data-blog', "DataBlogController");
+
+    //Kategori
+    Route::resource('/admin/data-kategori', "DataKategoriController");
     
     //Setting
     Route::prefix('settings')->group(function() {
