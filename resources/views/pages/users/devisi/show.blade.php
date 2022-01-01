@@ -16,8 +16,9 @@
 
     <section class="inner-page pt-3">
       <div class="container">
+        <img class="img-fluid" src="{{ Storage::exists('public/' . $cek->logo) && $cek->logo ? Storage::url($cek->logo) : asset('asset/img/imagePlaceholder.png') }}" alt="{{ $cek->name }}"></br>
         <p>
-          Example inner page template
+            {{ $cek->description }}
         </p>
       </div>
     </section>
