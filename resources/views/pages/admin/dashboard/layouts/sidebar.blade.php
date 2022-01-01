@@ -45,6 +45,14 @@
         </a>
     </li> --}}
 
+    <!-- Nav Item - Data Kategori -->
+    <li class="nav-item @yield('kategori')">
+        <a class="nav-link" href="{{ route('data-kategori.index') }}">
+            <i class="fas fa-list"></i>
+            <span>Kategori</span>
+        </a>
+    </li>
+
     <!-- Nav Item - Data Akun -->
     <li class="nav-item @yield('blog')">
         <a class="nav-link" href="{{ route('data-blog.index') }}">
