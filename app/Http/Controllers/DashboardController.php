@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\News;
+use App\Devision;
+use App\ClientImage;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +17,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.dashboard.index');
+        $news = News::count();
+        $users = User::count();
+        $clients = ClientImage::count();
+        $devisions = Devision::count();
+        return view('pages.admin.dashboard.index', [
+            'news' => $news,
+            'users' => $users,
+            'clients' => $clients,
+            'devisions' => $devisions
+        ]);
     }
 
     /**
