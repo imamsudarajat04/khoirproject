@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\KategoriRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class DataKategoriController extends Controller
@@ -51,10 +52,12 @@ class DataKategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KategoriRequest $request)
     {
         $data = $request->all();
-        
+        Category::create($data);
+
+        return redirect()->route('data-kategori.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -76,7 +79,8 @@ class DataKategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Category::findOrFail($id);
+        return view('pages.admin.kategori.edit', compact('data'));
     }
 
     /**
@@ -86,9 +90,14 @@ class DataKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KategoriRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = Category::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('data-kategori.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -99,6 +108,10 @@ class DataKategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Category::findOrFail($id);
+        
+        $result = $data->delete();
+
+        return response()->json($result);
     }
 }
