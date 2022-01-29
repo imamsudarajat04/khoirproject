@@ -219,8 +219,8 @@
         </div>
     </section><!-- End Services Section -->
   
-      <!-- ======= Values Section ======= -->
-    <section id="values" class="values">
+    <!-- ======= Values Section ======= -->
+    {{-- <section id="values" class="values">
         <div class="container">
   
           <div class="row">
@@ -264,7 +264,7 @@
           </div>
   
         </div>
-    </section><!-- End Values Section -->
+    </section><!-- End Values Section --> --}}
   
       <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">

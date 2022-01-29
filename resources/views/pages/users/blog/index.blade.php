@@ -12,7 +12,7 @@
   
             <div class="col-lg-8 entries">
               @if ($blogs->count() == 0)
-                <p style="text-align: center">Categories is empty</p>
+                <p style="text-align: center">Pilihan Kategori Kosong</p>
               @endif
               @foreach ($blogs as $blog)
                 <article class="entry">
@@ -22,7 +22,7 @@
                   </div>
     
                   <h2 class="entry-title">
-                    <a href="#">{{ $blog->title }}</a>
+                    <a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a>
                   </h2>
     
                   <div class="entry-meta">
